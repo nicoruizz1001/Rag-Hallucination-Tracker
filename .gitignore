@@ -1,0 +1,40 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets / credentials
+.env
+.env.*
+*.key
+credentials*.json
+secrets*
+
+# Local model files
+*.gguf
+*.bin
+*.safetensors
+models/
+
+# Large dataset / index artifacts (keep folder structure via .gitkeep)
+data/*
+!data/.gitkeep
+*.faiss
+*.index
+*.parquet
+*.arrow
+
+# Raw experiment outputs (commit summarized tables/plots deliberately)
+results/raw/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Agent scratch
+.superpowers/
