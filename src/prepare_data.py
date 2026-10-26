@@ -77,3 +77,55 @@ print("Unanswerable:", (~df["is_answerable"]).sum())
 print("Saved to:", output_path)
 
 print(df[["question_id", "question", "is_answerable"]].head())
+
+
+
+def get_context_id(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+# Connect each question to its original source passage.
+df["gold_context_id"] = df["source_passage"].apply(get_context_id)
+
+# Use the column name specified in the project guide.
+df = df.rename(columns={"reference_answers": "gold_answer"})
+
+# Start with every sampled question's source passage.
+# A dictionary prevents duplicate passages.
+documents = {}
+
+for text in df["source_passage"]:
+    document_id = get_context_id(text)
+    documents[document_id] = text
+
+# Add other passages as distractors until we have 500 total.
+target_size = 500
+
+for row in shuffled:
+    if len(documents) >= target_size:
+        break
+
+    text = row["context"]
+    document_id = get_context_id(text)
+    documents[document_id] = text
+
+documents_df = pd.DataFrame(
+    [
+        {"document_id": document_id, "text": text}
+        for document_id, text in documents.items()
+    ]
+)
+
+# Check that the corpus is complete and has no duplicates.
+assert len(documents_df) == target_size
+assert documents_df["document_id"].is_unique
+assert documents_df["text"].is_unique
+assert df["gold_context_id"].isin(documents_df["document_id"]).all()
+
+# Save the updated questions and passage corpus.
+df.to_csv(data_dir / "questions.csv", index=False)
+documents_df.to_csv(data_dir / "documents.csv", index=False)
+
+print("\nSaved questions:", len(df))
+print("Saved unique passages:", len(documents_df))
+print("Every question's source passage is in the corpus.")
