@@ -22,6 +22,7 @@ models/
 # Large dataset / index artifacts (keep folder structure via .gitkeep)
 data/*
 !data/.gitkeep
+data/cache/
 *.faiss
 *.index
 *.parquet

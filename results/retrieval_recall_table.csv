@@ -1,0 +1,3 @@
+method,Source Hit@1,Source Hit@3,Source Hit@5
+bm25,0.81,0.92,0.94
+dense,0.78,0.94,0.95
