@@ -41,3 +41,5 @@ python -m pytest
 - Python 3.11
 - LLM: `llama3.2:3b` via Ollama (record any change — it invalidates direct comparisons)
 - Exact package versions are pinned in `requirements.txt`.
+
+On a fixed sample of 100 SQuAD 2.0 validation questions and a corpus of 500 unique passages, BM25 achieved Source Hit@1 of 81%, Source Hit@5 of 94%, and MRR@5 of 0.865. For the 48 answerable questions, Source Hit@5 was 95.8%. These metrics measure retrieval of the assigned source passage, not answer correctness or corpus-wide answerability.
