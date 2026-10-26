@@ -29,7 +29,7 @@ def question_frame():
             {
                 "question_id": "q-1",
                 "question": "What color is the object?",
-                "gold_answer": "secret reference answer",
+            "gold_answer": '["secret reference answer"]',
                 "is_answerable": True,
                 "gold_context_id": "gold-doc",
             }
