@@ -1,0 +1,4 @@
+method,group,question_count,source_hit_at_1,source_hit_at_5,mrr_at_5
+dense,all,100,0.78,0.95,0.8541666666666667
+dense,answerable,48,0.8125,0.9583333333333334,0.875
+dense,unanswerable,52,0.75,0.9423076923076923,0.8349358974358976

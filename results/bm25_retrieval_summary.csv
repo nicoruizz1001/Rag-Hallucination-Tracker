@@ -1,4 +1,4 @@
-group,question_count,source_hit_at_1,source_hit_at_5,mrr_at_5
-all,100,0.81,0.94,0.865
-answerable,48,0.875,0.9583333333333334,0.907986111111111
-unanswerable,52,0.75,0.9230769230769231,0.8253205128205128
+method,group,question_count,source_hit_at_1,source_hit_at_5,mrr_at_5
+bm25,all,100,0.81,0.94,0.865
+bm25,answerable,48,0.875,0.9583333333333334,0.907986111111111
+bm25,unanswerable,52,0.75,0.9230769230769231,0.8253205128205128

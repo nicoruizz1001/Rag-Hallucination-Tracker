@@ -1,101 +1,101 @@
-question_id,question,is_answerable,gold_context_id,gold_rank_at_5,source_hit_at_1,source_hit_at_5,reciprocal_rank_at_5
-5733ea04d058e614000b6595,Where did Marin build first fort?,True,255db98fb0b6e32abd3b8317106e8eeb1841b1f3860f985c69bb911aae85aadc,1.0,1,1,1.0
-5ad26a5fd7d075001a42931b,What increases or decreases in response to static friction?,False,4df78faf78cb1b5e15488fe4b9288c48672e645c4147f4c979cb59d27e7a4435,1.0,1,1,1.0
-5a664447c2b11c001a425eef,What would Henry David Thoreau quote to audiences in India?,False,8e240428cc00a7e341c4c98ac2c96623adbfb2366b33b6f3685fcaf86361caa0,1.0,1,1,1.0
-5ad3ff1b604f3c001a3ffc74,What revolution was fought in the 1899's?,False,2d5e9f304697ac88e70d959415ed2a0826e4e17344d07025e79fe80526e13c31,2.0,0,1,0.5
-5ad25d39d7d075001a428eda,How are the rates of social goods in countries with lower inequality?,False,f012f955e53efdd1ab43f86e284322a35a15ee61e762f9e898a87a0f6e2e19c3,1.0,1,1,1.0
-5ad265d2d7d075001a4291c6,What is held inside the formal legal ownership registration system in many developing countries?,False,aa95ca2f8cb345761597dedb47b8dc46be2773412d98ec4f473e747ae7e16b2a,1.0,1,1,1.0
-5a1c8ea7b4fb5d00187146d1,In what year were there 5751 Filipinos in Jacksonville,False,7d5bd174d32d58bb26dd4c85a465c3132509d346fc1fc09b44f99555488ac4a2,1.0,1,1,1.0
-5a57c667770dc0001aeefd69,What changes the way a mineral is deposited?,False,a05eabc8f87fdca80834359f2972b2ffc1cf60d28eabf4521b6fbb77c0623996,1.0,1,1,1.0
-5705fd8475f01819005e7841,The region spans starting at islands found in which body of water?,True,b850237f43814691bedb635f5b07cea17e5bd3a2be801e564b61359a1746c8c6,1.0,1,1,1.0
-5726431d271a42140099d7f9,What was done to counteract the overpopulation of mnemiopsis in The Black Sea?,True,7f75accf663d59c998893e7d8881c9407df5f03def38be598706225dc5ae7b6e,2.0,0,1,0.5
-5a8929e43b2508001a72a4de,Of what form do Euler primes take?,False,d09f7c87003b5bdc2d9edcdcff1a2c86df26c7603d224be41276d3fae28c4ac7,1.0,1,1,1.0
-5706143575f01819005e7952,The Los Angeles Angels of Anaheim are from which sport?,True,c13e97d5b9e107a95bfa1a5c4501e6f2324d1835f95f811f69b00da962998aa8,1.0,1,1,1.0
-5ad570b25b96ef001a10aede,What seminal paper was written by Juris Hartmanis and Richard Stearns in 1975?,False,03eb6accc47f8f37613f49787d90a7cde1808cd11e3eca574b283b3e63a9aa56,1.0,1,1,1.0
-5ad04f7977cf76001a686fbb,What NLH teams are from Southern California?,False,c13e97d5b9e107a95bfa1a5c4501e6f2324d1835f95f811f69b00da962998aa8,1.0,1,1,1.0
-5726545f708984140094c2a5,"The legislative body, the Council, are made up of what type of individuals?",True,dd04072038d1a3ede59bf62dd3dc9ade4227b046627d4885431216fa66204dee,1.0,1,1,1.0
-5733a2a9d058e614000b5f2b,What does the Zachęta National Gallery of Art organize exhibitions of art from?,True,96487eda760f5bfa959c6a45ae9719d65ff38f88506a3c48debe04c7539f2c27,1.0,1,1,1.0
-57337f6ad058e614000b5bce,What conviction did many Poles have regarding how the Varsovians thought of themselves?,True,c947cb59a7986b7be2fa53ca56328526df98f4da7ba20d1368b007895802474a,1.0,1,1,1.0
-5a892d303b2508001a72a4ee,How many modern types of algorithm tests for general numbers n are there?,False,576db96228f229ebd5188bfb187b0285ce8e7a6eae31bd74cad56712e9e871a5,1.0,1,1,1.0
-5ad40b9a604f3c001a40001a,What is restrained with a lever in the top of a driver?,False,2fd24747c1f66748170c1c9f051c9e7d266cecb605076c6cae54a1c2917dd5d2,1.0,1,1,1.0
-573368044776f41900660a29,What type of space in Warsaw are the Botanic Garden and University Library garden?,True,01fbee86abe8e1fdb157b2ec40b6bdbb181baa78b7843fc6874859b9c6d9e482,1.0,1,1,1.0
-5726f48df1498d1400e8f0de,What are pharmacists forbidden to do?,True,ba71a4259a62247db3f4e9130708c3bd7ff3d84f900927a591bddb688e7ad277,4.0,0,1,0.25
-5a7b05cd21c2de001afe9cdc,Where did Fresno residents move to during the flooding?,False,6740991a42bdf84c8cdf4e82a485806a299304b992b7b57dfa26d34e0d97ab8f,1.0,1,1,1.0
-57265d08708984140094c398,Which parts of the Earth are included in the lithosphere? ,True,550636c40fe4508a2ea69d38f57883943b44dd88402a64050742216683d37a53,1.0,1,1,1.0
-5acff63377cf76001a68665d, what do conquering people take away from native populations?,False,48408b13d0ded7ecf339ad91fb7341eec773b90b40878f7f40a4e65b40a92268,1.0,1,1,1.0
-5ad0313b77cf76001a686dd5,Which type of rebellions are common in Scottish Parliament?,False,60527ca1cce54d340513d3ebe3086d4f283d0953ce0dd1d62f7c93de4d1730e4,3.0,0,1,0.3333333333333333
-572f55e8a23a5019007fc56b,Where does the name Rhine derive from? ,True,e5d79b0b05eee021a524a6dd62e33af2c2360f9063ec0f600a1cd0995c8e90d5,1.0,1,1,1.0
-5729fb003f37b31900478629,The production of what signalling molecules is regulated by the immune system?,True,ffaee1c83ab04918603b9940620c0c8b52e675143bc31a91f1fccac00d2b1bf7,3.0,0,1,0.3333333333333333
-5725c95f38643c19005accf7,How many people may have lived in the Amazon region during AD 1500?,True,32aa68d3a51961f2fc85d1117b79448f87b2591002c8300196d5ce966afb629c,1.0,1,1,1.0
-572fdd03a23a5019007fca9e,What are MPs unable to vote upon?,True,0b0c060c48f85197bf26e8fe7a9135f1de267f3c76fb0f2a8b61b88bdb83897d,1.0,1,1,1.0
-572facb0a23a5019007fc866,When was there a sharp rise in nationalism in Scotland?,True,65a4f29a52c31659b66baa59545297d8af56b2b1f884801f998c7d4c6e8396d8,1.0,1,1,1.0
-5ad3b147604f3c001a3fecd6,What wasn't the goal of Braddock's expedition?,False,7e6cd28894d7c2d4bce2f35293457cb14f0582ffa98614ffd1b3aa751d7e5a6b,1.0,1,1,1.0
-57339dd94776f41900660ecd,How man people gather along the banks of the Vistula for the Wianki festival?,True,cb5ae64f4a40d66719685e8c2bb610700b700b4a88b81e771cd6a21e092bd04d,1.0,1,1,1.0
-5a1c8aedb4fb5d00187146a2,What makes up 11.6% of Jacksonville?,False,75cb5a3ffcb3fc0fc634b23eb3e6ae0e8c3365b15ad5892f4ea7a382f0495c6a,,0,0,0.0
-572a1046af94a219006aa78e,How does inequality prevent growth?,True,370a061e5ca65789c1b3de293fa613a451986a288a9add748e5305a00db4ffcb,1.0,1,1,1.0
-5725f00938643c19005aced7,Who is Kearney Boulevard named after?,True,5ee9e17954c8db6e08d7e774796ee372c5de505e121d05365dda2f195f5b33f5,1.0,1,1,1.0
-5711163bb654c5140001fb13,What present day county is New Rochelle in?,True,8936635bf73401c433870cb063f6320a4ef8777db9a366c03e4dbb42de622dd0,1.0,1,1,1.0
-5ad13ef3645df0001a2d138d,What year were citizens or corporations said to have been able to bring claims against other non state parties?,False,dcfb0f7f5bc1204aa3bfd5527705816bbc3708bfd587d9704329ac492eb3e9f2,1.0,1,1,1.0
-5728e8212ca10214002daa6e,What should be avoided when talking to authorities?,True,b0b415698a08be3715334c86bcf911274e5b53530b1037d075a0f6e9107df2ea,,0,0,0.0
-5ad03c2977cf76001a686eb4,What includes all subjects which are not stated in Schedule 6 to the Scotland Act?,False,ecf1e1973489bdea861aef055f7038e7972d136b0a3e0815dad277527a4de447,1.0,1,1,1.0
-57286bf84b864d19001649d2,What alumni member also write the bestseller Before I Fall?,True,3243e4c3f26f22351bf8c52e8438c396a19b76af187bad37a4ca97532160e33d,1.0,1,1,1.0
-5ad10f94645df0001a2d0bc6,What does the TEU not do?,False,4f4c81ae038012c4fba4f9b9d5af1edba076741a21c3a6d3c06b83ed01143eed,2.0,0,1,0.5
-572a20816aef0514001552e6,"In an ideal moral society, what would all citizens be free from?",True,9bfd34dc5945f3f1cb2977bcaf00d7025ecfd1ae65eff22ed5f0ad4225e7ab2e,1.0,1,1,1.0
-57264684708984140094c124,How did the black death make it to the Mediterranean and Europe?,True,0d50de71a8220db34991fd3710e965ad95973a5e898da92d2e09819ee0ff21b8,1.0,1,1,1.0
-5a67dedd8476ee001a58a74d,What is course content funding subject to?,False,2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9,1.0,1,1,1.0
-57265700dd62a815002e8212,When was Europe's last major epidemic?,True,5df020d955be1c7df32e882ac62108a50dec46bd1b1b064de8825485d8d90aba,1.0,1,1,1.0
-5a835b42e60761001a2eb60d,What kind of sediment particles are there?,False,07c74ed461874b9d65a20073628bf44782dd35b57d89d4d5a16b494c99bf9f34,1.0,1,1,1.0
-5a8235a931013a001a3352d8,How many books are endorsed by the American Library Association?,False,c921148c6781bd32095c95fe8a605f57c9e33119681a07d3d01a7ee290f988dc,1.0,1,1,1.0
-5ad2442bd7d075001a428a3c,What pushes businesses to decrease pressures on workers?,False,c510ffd948b62d2e66c69cbbad6f3aaf252b777869459bb4bd91bd314d3c61c9,,0,0,0.0
-573408ef4776f41900661757,When did the North American French and Indian War end?,True,52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057,,0,0,0.0
-5a2eb84ba83784001a7d2423,In what year did the Black Death reach the Mediterranean?,False,0d50de71a8220db34991fd3710e965ad95973a5e898da92d2e09819ee0ff21b8,1.0,1,1,1.0
-5a234eef82b03a001a4aa76b,What usually takes place on location for an unknown client?,False,ea82c9d7a805e960cc889a9692f69c9069b014904492e22cdfb4515383ed6d3f,1.0,1,1,1.0
-5ad11097645df0001a2d0be2,What major adjust was made to the treaties in 1960?,False,93fbba530b12b34ec00e68920885b0413568d15ff0159deaeffa23795ab32c51,2.0,0,1,0.5
-572a1a5c6aef051400155284,What needs to be made to ensure poorer members of society can participate in economic growth?,True,d66dc811eec70fc3e4c423de2b401a9c06f15664d2374683267e4dc009eeb470,1.0,1,1,1.0
-5ad5719f5b96ef001a10aef0,Who was pioneer and studied specific complexity measure in 1948?,False,0771c41591ce859133397b70f7fe295ca178804c352b68cc34f3f35caa1c92ab,1.0,1,1,1.0
-5a2c0a5abfd06b001a5ae993,What company was not concerned about retaining new rights?,False,33e437b3aa69c51c5ea1020e0b70f0916c331f1cf003676c6af11264875e9156,,0,0,0.0
-5a57f0ea770dc0001aeefee3,What is the theory of evolution based on?,False,c018c8eb3d4256f40e35bc0be8827b1ac58191a915621d04874fc9bbf2a895b7,1.0,1,1,1.0
-5a81f28431013a001a334fb5,How many billionaires are now living in Cambridge?,False,dcc81677898074e44be2a7eff5c32d8289a558c94741d4acadce83b97ba38260,3.0,0,1,0.3333333333333333
-5ad3a38c604f3c001a3fea63,What wasn't the ratio of British settlers to French?,False,0fe05bd1833002131a7e69e040cc114a9dfc4409000d5d0674152325ab91cb19,1.0,1,1,1.0
-5ad3ad01604f3c001a3febd3,What was the South American portion of War of Austrian Succession?,False,acd15f4158acfabce9c5519524687c67beb251f8591bbe133adf84f4ff581eeb,1.0,1,1,1.0
-57108073b654c5140001f927,When did these rebellions take place?,True,d0340f7215724f2365361615e8a563799243a08b9728bfbb9a3f113a32d96975,2.0,0,1,0.5
-571caac55efbb31900334dc9,What minor amount of liquid oxygen was produced by early French experimenters?,True,36476aaf2aea4f7927c065f38bbc7e2f8ec013b37ee0a2f1c7f545368f0dc62e,1.0,1,1,1.0
-57296f293f37b319004783a6,What is the name of another algorithm useful for conveniently testing the primality of large numbers? ,True,1a3bfa6d8c28e3d95f98010e81aae93407594356ed4a4ca189d76d6b8d7c83f6,1.0,1,1,1.0
-5ad509615b96ef001a10aa7c,Where was the famous artist Tamara de Maria born?,False,501203b730c0f3270043cbb23105201ff5376b0fd2de78b257175fa90c937ad8,1.0,1,1,1.0
-5729d51d3f37b3190047858f,What did Neoclassical economics view the inequality in the distribution of income as being from?,True,34aa9a8e3e875665b03b42736977f2f48a2ec8d33658966acc4b94712b217093,1.0,1,1,1.0
-5ad400f0604f3c001a3ffcf3, What was Kublai Khan's opposition to Ogedei Khan?,False,33e2cbb8bfbd5c289d039594230be01025af09fb64adfb83f973ad2fbfd72f9a,2.0,0,1,0.5
-5a7b12a421c2de001afe9d51,What stalled the development of houses?,False,30b96d00b6abd2b913c23d97aa914ef7cf8a50107f4b66ea802e13359d9c0d58,1.0,1,1,1.0
-571c9074dd7acb1400e4c103,What function does ozone perform for the planet?,True,069f593a47b1c7d532212a62aba1e27bdd08d0259cb3e0a96bc73f362f4036e4,1.0,1,1,1.0
-571cd11add7acb1400e4c170,What do professional athletes seek to boost from breathing oxygen?,True,dbbb33306f8f352995a1d3fd2732b580913659def1453f2b1f9ebc7902eda387,1.0,1,1,1.0
-570d2f5bfed7b91900d45cd3,What document formed the Parliament of Victoria?,True,1dd13bf14660147737c3329dcbc515e988f9c216e86af57e2f8c27638569229b,1.0,1,1,1.0
-57300c67947a6a140053cff2,in 1932 what was the Rhine measurement changed to?,True,9be402bb7a93ae75db4b317f4e0e2c040d9f89ef6aab3066e3a569ea09e6d56e,1.0,1,1,1.0
-5ad14f5a645df0001a2d1710,Which countries did not agree upon the European Coal and Steel Community agreement?,False,ca02817db884a9c211c78887f253bd1ad8313827771fe6c139771bc0dd71b434,1.0,1,1,1.0
-5a6647d2c2b11c001a425f1e,What did LeGrande write about grammatical niceties?,False,a0db929a48c83ef36f766c4a7bc7666a9e2de11f6bf7ba38e5249c3c3535034a,1.0,1,1,1.0
-5725c337271a42140099d167,What does coastal beriods use as teeth?,True,ee73f593c26ad38e58d299361ba118fcf077591f71e9d4ed9515efb8b2fc75f2,1.0,1,1,1.0
-5ad4e4425b96ef001a10a575,What happens when tyrosinase is expressed at low levels?,False,78ec071ddf9b759d3708c4c1ad1235997e73bd747b9e748af29742ebdf7d95d2,1.0,1,1,1.0
-5ad3b260604f3c001a3fed06,Who went to Fort Dusquesne in July 1755?,False,e26d3a98154d79e4fb93dfbc9b446801d4e38dc1c4681b39878f40025a6b4fce,2.0,0,1,0.5
-572fd6aa04bcaa1900d76da0,"What month, every four years, are the ordinary general elections held on?",True,8796b2318cf8e6050ff8ba905f88d551f8360a13cfbf8739e1234d4ed4ac2c25,1.0,1,1,1.0
-573755afc3c5551400e51eb3,What experiences acceleration when external force is applied to a system?,True,9236eb060e30e96b6f012a230bcabe83aff286e5d483e37af447fc603b2d39c0,1.0,1,1,1.0
-572ffce5a23a5019007fcc18,"In early Pleistocene, what direction did the Rhine flow?",True,b5982bf3efbf127bdc0d4129376c8149d17dd872f55180b77b46c56c7b601a03,1.0,1,1,1.0
-5ad3cc47604f3c001a3ff146,What product was notably shipped in vessels equipped with double and triple replacement engines?,False,a6b7ec7938b966c86b4cc72fa2059dcdbd60bc13208210cff0105baccb082b8b,1.0,1,1,1.0
-5a67a898f038b7001ab0c3f5,How does The Tuition Fee Suppliment help high school students?,False,cf3314dc1ff1c19a23260f955334192ba867e2b07ef93e9d0d07451dfe6631c6,1.0,1,1,1.0
-5ad23fded7d075001a4288fd,Where were French Catholics concentrated in France?,False,f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c,1.0,1,1,1.0
-571a4b0f10f8ca1400304fd7,What is consumed in both combustion and respiration?,True,d8abf737112efa9397c511991f2e930e293c8a4b7a2251790cb6dc58cc065917,1.0,1,1,1.0
-5a893a003b2508001a72a53f,Which conjecture holds that every odd integer n greater than 2 can be expressed as a sum of two primes?,False,4eef5ee2e8e5a99f7d072734f1ac52b08194c79b66eefd1f527eb2304547b585,1.0,1,1,1.0
-5ad546c75b96ef001a10ac11,Which machine allows the machine to have multiple possible past actions from a given state?,False,b1883919e17ff672ebc5c8754b9babd683410134d88304f2048788353467a297,1.0,1,1,1.0
-573011de04bcaa1900d770fc,What movements pursued a more radical direction?,True,669c732e68d4698e85daf523d3d93830928903f8fb4cdd4338411f7b305ecc65,1.0,1,1,1.0
-5729a26d6aef05140015505c,Completing Q with respect to what will produce the field of real numbers?,True,02473abeaeaf0a7ac1221ede2323c119c62182f573df438534fcb86c2c6943d4,1.0,1,1,1.0
-5ad15170645df0001a2d1735,What was not central to European development since the Treaty of Rome 1957?,False,380ed5d16b3e18e5bda2da4ba87c2f5203099504f6e9d67415a4907077e2d2c0,4.0,0,1,0.25
-5ad26235d7d075001a429082,What is AlO?,False,1bb8a054229137a9005ea877e0aa27b556891e3521788927c58348127564b154,,0,0,0.0
-5acf98ad77cf76001a6853c6,"Apart from its mathematics and postgraduate schools, what else doe the university run?",False,7b34e1e2f91ddbd599fb3d4d15ae6acd8e8d1cac5db50bbd4e9817681d7881c5,1.0,1,1,1.0
-5ad28173d7d075001a4297fd,"Who discovered that electric and magnetic fields could be ""self-aware""",False,0c60fccfa0a5891c548480d13173fbf66ab99f403f068010ba84b6402ed6daff,1.0,1,1,1.0
-5ad24600d7d075001a428aca,How many Huguenots were killed altogether in France?,False,f390cbcc7bd65fb1d7a393f33688551d69b62380ab207dd27d85bce34922a884,2.0,0,1,0.5
-5ad4d2855b96ef001a10a1de,Which plateau is the left part of Vistula on?,False,bf76765a3bcbb3f449e01da2f548b3b094ea7b414aeef804bd1d9900155a93f6,1.0,1,1,1.0
-5725f2c838643c19005aceee,How many total acres is Woodward Park?,True,ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b,1.0,1,1,1.0
-5a6695e8f038b7001ab0c01a,X.25 and X.121 allowed what to happen?,False,b04a1b4486692807dd767cb5a92dd6ad22056e725f2af81c0800045aa31137f7,1.0,1,1,1.0
-5727e21e4b864d1900163f36,What Shakespeare Scholar is a faculty member at Harvard?,True,874533677a269c5d5fb8bd3a3213307ea1632c2236ea48b8da8182d07905fcc8,1.0,1,1,1.0
-572745c6708984140094db9a,A formal design team may be assembled to do what?,True,6b3c0a7178c7d09d6fcfaa669200e662a4c151d4d6093ed06907f82f1b10e5d3,1.0,1,1,1.0
-572fec30947a6a140053cdf3,What is the first major bend in the Rhine called?,True,f13e50f6e6854915c887789f95aac6c2b8ac4dfc887c56edb77102ecf62c7e08,1.0,1,1,1.0
-5710e8c8a58dae1900cd6b2a,French troops put down the Camisard uprisings between what years?,True,b4e5bc367ebb9b2d4ccef67770a2f67d1a323f808c17f89bede0f2af3b3a5f3f,1.0,1,1,1.0
-572fbf21a23a5019007fc93b,What is the mace displayed in?,True,695f7892d8dda7e75ff7ac287c45ae74caac840c17b5defa2ce1324a001b8dad,1.0,1,1,1.0
-572665ff708984140094c4c5,Finding what helps to determine if a fault is a normal fault or a thrust fault? ,True,e71eab6fb81f391a6f9f6f7ddf6a435221f7159360e4d7a0549e3b969d010395,1.0,1,1,1.0
+method,question_id,question,is_answerable,gold_context_id,gold_rank_at_5,source_hit_at_1,source_hit_at_5,reciprocal_rank_at_5
+bm25,5733ea04d058e614000b6595,Where did Marin build first fort?,True,255db98fb0b6e32abd3b8317106e8eeb1841b1f3860f985c69bb911aae85aadc,1.0,1,1,1.0
+bm25,5ad26a5fd7d075001a42931b,What increases or decreases in response to static friction?,False,4df78faf78cb1b5e15488fe4b9288c48672e645c4147f4c979cb59d27e7a4435,1.0,1,1,1.0
+bm25,5a664447c2b11c001a425eef,What would Henry David Thoreau quote to audiences in India?,False,8e240428cc00a7e341c4c98ac2c96623adbfb2366b33b6f3685fcaf86361caa0,1.0,1,1,1.0
+bm25,5ad3ff1b604f3c001a3ffc74,What revolution was fought in the 1899's?,False,2d5e9f304697ac88e70d959415ed2a0826e4e17344d07025e79fe80526e13c31,2.0,0,1,0.5
+bm25,5ad25d39d7d075001a428eda,How are the rates of social goods in countries with lower inequality?,False,f012f955e53efdd1ab43f86e284322a35a15ee61e762f9e898a87a0f6e2e19c3,1.0,1,1,1.0
+bm25,5ad265d2d7d075001a4291c6,What is held inside the formal legal ownership registration system in many developing countries?,False,aa95ca2f8cb345761597dedb47b8dc46be2773412d98ec4f473e747ae7e16b2a,1.0,1,1,1.0
+bm25,5a1c8ea7b4fb5d00187146d1,In what year were there 5751 Filipinos in Jacksonville,False,7d5bd174d32d58bb26dd4c85a465c3132509d346fc1fc09b44f99555488ac4a2,1.0,1,1,1.0
+bm25,5a57c667770dc0001aeefd69,What changes the way a mineral is deposited?,False,a05eabc8f87fdca80834359f2972b2ffc1cf60d28eabf4521b6fbb77c0623996,1.0,1,1,1.0
+bm25,5705fd8475f01819005e7841,The region spans starting at islands found in which body of water?,True,b850237f43814691bedb635f5b07cea17e5bd3a2be801e564b61359a1746c8c6,1.0,1,1,1.0
+bm25,5726431d271a42140099d7f9,What was done to counteract the overpopulation of mnemiopsis in The Black Sea?,True,7f75accf663d59c998893e7d8881c9407df5f03def38be598706225dc5ae7b6e,2.0,0,1,0.5
+bm25,5a8929e43b2508001a72a4de,Of what form do Euler primes take?,False,d09f7c87003b5bdc2d9edcdcff1a2c86df26c7603d224be41276d3fae28c4ac7,1.0,1,1,1.0
+bm25,5706143575f01819005e7952,The Los Angeles Angels of Anaheim are from which sport?,True,c13e97d5b9e107a95bfa1a5c4501e6f2324d1835f95f811f69b00da962998aa8,1.0,1,1,1.0
+bm25,5ad570b25b96ef001a10aede,What seminal paper was written by Juris Hartmanis and Richard Stearns in 1975?,False,03eb6accc47f8f37613f49787d90a7cde1808cd11e3eca574b283b3e63a9aa56,1.0,1,1,1.0
+bm25,5ad04f7977cf76001a686fbb,What NLH teams are from Southern California?,False,c13e97d5b9e107a95bfa1a5c4501e6f2324d1835f95f811f69b00da962998aa8,1.0,1,1,1.0
+bm25,5726545f708984140094c2a5,"The legislative body, the Council, are made up of what type of individuals?",True,dd04072038d1a3ede59bf62dd3dc9ade4227b046627d4885431216fa66204dee,1.0,1,1,1.0
+bm25,5733a2a9d058e614000b5f2b,What does the Zachęta National Gallery of Art organize exhibitions of art from?,True,96487eda760f5bfa959c6a45ae9719d65ff38f88506a3c48debe04c7539f2c27,1.0,1,1,1.0
+bm25,57337f6ad058e614000b5bce,What conviction did many Poles have regarding how the Varsovians thought of themselves?,True,c947cb59a7986b7be2fa53ca56328526df98f4da7ba20d1368b007895802474a,1.0,1,1,1.0
+bm25,5a892d303b2508001a72a4ee,How many modern types of algorithm tests for general numbers n are there?,False,576db96228f229ebd5188bfb187b0285ce8e7a6eae31bd74cad56712e9e871a5,1.0,1,1,1.0
+bm25,5ad40b9a604f3c001a40001a,What is restrained with a lever in the top of a driver?,False,2fd24747c1f66748170c1c9f051c9e7d266cecb605076c6cae54a1c2917dd5d2,1.0,1,1,1.0
+bm25,573368044776f41900660a29,What type of space in Warsaw are the Botanic Garden and University Library garden?,True,01fbee86abe8e1fdb157b2ec40b6bdbb181baa78b7843fc6874859b9c6d9e482,1.0,1,1,1.0
+bm25,5726f48df1498d1400e8f0de,What are pharmacists forbidden to do?,True,ba71a4259a62247db3f4e9130708c3bd7ff3d84f900927a591bddb688e7ad277,4.0,0,1,0.25
+bm25,5a7b05cd21c2de001afe9cdc,Where did Fresno residents move to during the flooding?,False,6740991a42bdf84c8cdf4e82a485806a299304b992b7b57dfa26d34e0d97ab8f,1.0,1,1,1.0
+bm25,57265d08708984140094c398,Which parts of the Earth are included in the lithosphere? ,True,550636c40fe4508a2ea69d38f57883943b44dd88402a64050742216683d37a53,1.0,1,1,1.0
+bm25,5acff63377cf76001a68665d, what do conquering people take away from native populations?,False,48408b13d0ded7ecf339ad91fb7341eec773b90b40878f7f40a4e65b40a92268,1.0,1,1,1.0
+bm25,5ad0313b77cf76001a686dd5,Which type of rebellions are common in Scottish Parliament?,False,60527ca1cce54d340513d3ebe3086d4f283d0953ce0dd1d62f7c93de4d1730e4,3.0,0,1,0.3333333333333333
+bm25,572f55e8a23a5019007fc56b,Where does the name Rhine derive from? ,True,e5d79b0b05eee021a524a6dd62e33af2c2360f9063ec0f600a1cd0995c8e90d5,1.0,1,1,1.0
+bm25,5729fb003f37b31900478629,The production of what signalling molecules is regulated by the immune system?,True,ffaee1c83ab04918603b9940620c0c8b52e675143bc31a91f1fccac00d2b1bf7,3.0,0,1,0.3333333333333333
+bm25,5725c95f38643c19005accf7,How many people may have lived in the Amazon region during AD 1500?,True,32aa68d3a51961f2fc85d1117b79448f87b2591002c8300196d5ce966afb629c,1.0,1,1,1.0
+bm25,572fdd03a23a5019007fca9e,What are MPs unable to vote upon?,True,0b0c060c48f85197bf26e8fe7a9135f1de267f3c76fb0f2a8b61b88bdb83897d,1.0,1,1,1.0
+bm25,572facb0a23a5019007fc866,When was there a sharp rise in nationalism in Scotland?,True,65a4f29a52c31659b66baa59545297d8af56b2b1f884801f998c7d4c6e8396d8,1.0,1,1,1.0
+bm25,5ad3b147604f3c001a3fecd6,What wasn't the goal of Braddock's expedition?,False,7e6cd28894d7c2d4bce2f35293457cb14f0582ffa98614ffd1b3aa751d7e5a6b,1.0,1,1,1.0
+bm25,57339dd94776f41900660ecd,How man people gather along the banks of the Vistula for the Wianki festival?,True,cb5ae64f4a40d66719685e8c2bb610700b700b4a88b81e771cd6a21e092bd04d,1.0,1,1,1.0
+bm25,5a1c8aedb4fb5d00187146a2,What makes up 11.6% of Jacksonville?,False,75cb5a3ffcb3fc0fc634b23eb3e6ae0e8c3365b15ad5892f4ea7a382f0495c6a,,0,0,0.0
+bm25,572a1046af94a219006aa78e,How does inequality prevent growth?,True,370a061e5ca65789c1b3de293fa613a451986a288a9add748e5305a00db4ffcb,1.0,1,1,1.0
+bm25,5725f00938643c19005aced7,Who is Kearney Boulevard named after?,True,5ee9e17954c8db6e08d7e774796ee372c5de505e121d05365dda2f195f5b33f5,1.0,1,1,1.0
+bm25,5711163bb654c5140001fb13,What present day county is New Rochelle in?,True,8936635bf73401c433870cb063f6320a4ef8777db9a366c03e4dbb42de622dd0,1.0,1,1,1.0
+bm25,5ad13ef3645df0001a2d138d,What year were citizens or corporations said to have been able to bring claims against other non state parties?,False,dcfb0f7f5bc1204aa3bfd5527705816bbc3708bfd587d9704329ac492eb3e9f2,1.0,1,1,1.0
+bm25,5728e8212ca10214002daa6e,What should be avoided when talking to authorities?,True,b0b415698a08be3715334c86bcf911274e5b53530b1037d075a0f6e9107df2ea,,0,0,0.0
+bm25,5ad03c2977cf76001a686eb4,What includes all subjects which are not stated in Schedule 6 to the Scotland Act?,False,ecf1e1973489bdea861aef055f7038e7972d136b0a3e0815dad277527a4de447,1.0,1,1,1.0
+bm25,57286bf84b864d19001649d2,What alumni member also write the bestseller Before I Fall?,True,3243e4c3f26f22351bf8c52e8438c396a19b76af187bad37a4ca97532160e33d,1.0,1,1,1.0
+bm25,5ad10f94645df0001a2d0bc6,What does the TEU not do?,False,4f4c81ae038012c4fba4f9b9d5af1edba076741a21c3a6d3c06b83ed01143eed,2.0,0,1,0.5
+bm25,572a20816aef0514001552e6,"In an ideal moral society, what would all citizens be free from?",True,9bfd34dc5945f3f1cb2977bcaf00d7025ecfd1ae65eff22ed5f0ad4225e7ab2e,1.0,1,1,1.0
+bm25,57264684708984140094c124,How did the black death make it to the Mediterranean and Europe?,True,0d50de71a8220db34991fd3710e965ad95973a5e898da92d2e09819ee0ff21b8,1.0,1,1,1.0
+bm25,5a67dedd8476ee001a58a74d,What is course content funding subject to?,False,2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9,1.0,1,1,1.0
+bm25,57265700dd62a815002e8212,When was Europe's last major epidemic?,True,5df020d955be1c7df32e882ac62108a50dec46bd1b1b064de8825485d8d90aba,1.0,1,1,1.0
+bm25,5a835b42e60761001a2eb60d,What kind of sediment particles are there?,False,07c74ed461874b9d65a20073628bf44782dd35b57d89d4d5a16b494c99bf9f34,1.0,1,1,1.0
+bm25,5a8235a931013a001a3352d8,How many books are endorsed by the American Library Association?,False,c921148c6781bd32095c95fe8a605f57c9e33119681a07d3d01a7ee290f988dc,1.0,1,1,1.0
+bm25,5ad2442bd7d075001a428a3c,What pushes businesses to decrease pressures on workers?,False,c510ffd948b62d2e66c69cbbad6f3aaf252b777869459bb4bd91bd314d3c61c9,,0,0,0.0
+bm25,573408ef4776f41900661757,When did the North American French and Indian War end?,True,52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057,,0,0,0.0
+bm25,5a2eb84ba83784001a7d2423,In what year did the Black Death reach the Mediterranean?,False,0d50de71a8220db34991fd3710e965ad95973a5e898da92d2e09819ee0ff21b8,1.0,1,1,1.0
+bm25,5a234eef82b03a001a4aa76b,What usually takes place on location for an unknown client?,False,ea82c9d7a805e960cc889a9692f69c9069b014904492e22cdfb4515383ed6d3f,1.0,1,1,1.0
+bm25,5ad11097645df0001a2d0be2,What major adjust was made to the treaties in 1960?,False,93fbba530b12b34ec00e68920885b0413568d15ff0159deaeffa23795ab32c51,2.0,0,1,0.5
+bm25,572a1a5c6aef051400155284,What needs to be made to ensure poorer members of society can participate in economic growth?,True,d66dc811eec70fc3e4c423de2b401a9c06f15664d2374683267e4dc009eeb470,1.0,1,1,1.0
+bm25,5ad5719f5b96ef001a10aef0,Who was pioneer and studied specific complexity measure in 1948?,False,0771c41591ce859133397b70f7fe295ca178804c352b68cc34f3f35caa1c92ab,1.0,1,1,1.0
+bm25,5a2c0a5abfd06b001a5ae993,What company was not concerned about retaining new rights?,False,33e437b3aa69c51c5ea1020e0b70f0916c331f1cf003676c6af11264875e9156,,0,0,0.0
+bm25,5a57f0ea770dc0001aeefee3,What is the theory of evolution based on?,False,c018c8eb3d4256f40e35bc0be8827b1ac58191a915621d04874fc9bbf2a895b7,1.0,1,1,1.0
+bm25,5a81f28431013a001a334fb5,How many billionaires are now living in Cambridge?,False,dcc81677898074e44be2a7eff5c32d8289a558c94741d4acadce83b97ba38260,3.0,0,1,0.3333333333333333
+bm25,5ad3a38c604f3c001a3fea63,What wasn't the ratio of British settlers to French?,False,0fe05bd1833002131a7e69e040cc114a9dfc4409000d5d0674152325ab91cb19,1.0,1,1,1.0
+bm25,5ad3ad01604f3c001a3febd3,What was the South American portion of War of Austrian Succession?,False,acd15f4158acfabce9c5519524687c67beb251f8591bbe133adf84f4ff581eeb,1.0,1,1,1.0
+bm25,57108073b654c5140001f927,When did these rebellions take place?,True,d0340f7215724f2365361615e8a563799243a08b9728bfbb9a3f113a32d96975,2.0,0,1,0.5
+bm25,571caac55efbb31900334dc9,What minor amount of liquid oxygen was produced by early French experimenters?,True,36476aaf2aea4f7927c065f38bbc7e2f8ec013b37ee0a2f1c7f545368f0dc62e,1.0,1,1,1.0
+bm25,57296f293f37b319004783a6,What is the name of another algorithm useful for conveniently testing the primality of large numbers? ,True,1a3bfa6d8c28e3d95f98010e81aae93407594356ed4a4ca189d76d6b8d7c83f6,1.0,1,1,1.0
+bm25,5ad509615b96ef001a10aa7c,Where was the famous artist Tamara de Maria born?,False,501203b730c0f3270043cbb23105201ff5376b0fd2de78b257175fa90c937ad8,1.0,1,1,1.0
+bm25,5729d51d3f37b3190047858f,What did Neoclassical economics view the inequality in the distribution of income as being from?,True,34aa9a8e3e875665b03b42736977f2f48a2ec8d33658966acc4b94712b217093,1.0,1,1,1.0
+bm25,5ad400f0604f3c001a3ffcf3, What was Kublai Khan's opposition to Ogedei Khan?,False,33e2cbb8bfbd5c289d039594230be01025af09fb64adfb83f973ad2fbfd72f9a,2.0,0,1,0.5
+bm25,5a7b12a421c2de001afe9d51,What stalled the development of houses?,False,30b96d00b6abd2b913c23d97aa914ef7cf8a50107f4b66ea802e13359d9c0d58,1.0,1,1,1.0
+bm25,571c9074dd7acb1400e4c103,What function does ozone perform for the planet?,True,069f593a47b1c7d532212a62aba1e27bdd08d0259cb3e0a96bc73f362f4036e4,1.0,1,1,1.0
+bm25,571cd11add7acb1400e4c170,What do professional athletes seek to boost from breathing oxygen?,True,dbbb33306f8f352995a1d3fd2732b580913659def1453f2b1f9ebc7902eda387,1.0,1,1,1.0
+bm25,570d2f5bfed7b91900d45cd3,What document formed the Parliament of Victoria?,True,1dd13bf14660147737c3329dcbc515e988f9c216e86af57e2f8c27638569229b,1.0,1,1,1.0
+bm25,57300c67947a6a140053cff2,in 1932 what was the Rhine measurement changed to?,True,9be402bb7a93ae75db4b317f4e0e2c040d9f89ef6aab3066e3a569ea09e6d56e,1.0,1,1,1.0
+bm25,5ad14f5a645df0001a2d1710,Which countries did not agree upon the European Coal and Steel Community agreement?,False,ca02817db884a9c211c78887f253bd1ad8313827771fe6c139771bc0dd71b434,1.0,1,1,1.0
+bm25,5a6647d2c2b11c001a425f1e,What did LeGrande write about grammatical niceties?,False,a0db929a48c83ef36f766c4a7bc7666a9e2de11f6bf7ba38e5249c3c3535034a,1.0,1,1,1.0
+bm25,5725c337271a42140099d167,What does coastal beriods use as teeth?,True,ee73f593c26ad38e58d299361ba118fcf077591f71e9d4ed9515efb8b2fc75f2,1.0,1,1,1.0
+bm25,5ad4e4425b96ef001a10a575,What happens when tyrosinase is expressed at low levels?,False,78ec071ddf9b759d3708c4c1ad1235997e73bd747b9e748af29742ebdf7d95d2,1.0,1,1,1.0
+bm25,5ad3b260604f3c001a3fed06,Who went to Fort Dusquesne in July 1755?,False,e26d3a98154d79e4fb93dfbc9b446801d4e38dc1c4681b39878f40025a6b4fce,2.0,0,1,0.5
+bm25,572fd6aa04bcaa1900d76da0,"What month, every four years, are the ordinary general elections held on?",True,8796b2318cf8e6050ff8ba905f88d551f8360a13cfbf8739e1234d4ed4ac2c25,1.0,1,1,1.0
+bm25,573755afc3c5551400e51eb3,What experiences acceleration when external force is applied to a system?,True,9236eb060e30e96b6f012a230bcabe83aff286e5d483e37af447fc603b2d39c0,1.0,1,1,1.0
+bm25,572ffce5a23a5019007fcc18,"In early Pleistocene, what direction did the Rhine flow?",True,b5982bf3efbf127bdc0d4129376c8149d17dd872f55180b77b46c56c7b601a03,1.0,1,1,1.0
+bm25,5ad3cc47604f3c001a3ff146,What product was notably shipped in vessels equipped with double and triple replacement engines?,False,a6b7ec7938b966c86b4cc72fa2059dcdbd60bc13208210cff0105baccb082b8b,1.0,1,1,1.0
+bm25,5a67a898f038b7001ab0c3f5,How does The Tuition Fee Suppliment help high school students?,False,cf3314dc1ff1c19a23260f955334192ba867e2b07ef93e9d0d07451dfe6631c6,1.0,1,1,1.0
+bm25,5ad23fded7d075001a4288fd,Where were French Catholics concentrated in France?,False,f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c,1.0,1,1,1.0
+bm25,571a4b0f10f8ca1400304fd7,What is consumed in both combustion and respiration?,True,d8abf737112efa9397c511991f2e930e293c8a4b7a2251790cb6dc58cc065917,1.0,1,1,1.0
+bm25,5a893a003b2508001a72a53f,Which conjecture holds that every odd integer n greater than 2 can be expressed as a sum of two primes?,False,4eef5ee2e8e5a99f7d072734f1ac52b08194c79b66eefd1f527eb2304547b585,1.0,1,1,1.0
+bm25,5ad546c75b96ef001a10ac11,Which machine allows the machine to have multiple possible past actions from a given state?,False,b1883919e17ff672ebc5c8754b9babd683410134d88304f2048788353467a297,1.0,1,1,1.0
+bm25,573011de04bcaa1900d770fc,What movements pursued a more radical direction?,True,669c732e68d4698e85daf523d3d93830928903f8fb4cdd4338411f7b305ecc65,1.0,1,1,1.0
+bm25,5729a26d6aef05140015505c,Completing Q with respect to what will produce the field of real numbers?,True,02473abeaeaf0a7ac1221ede2323c119c62182f573df438534fcb86c2c6943d4,1.0,1,1,1.0
+bm25,5ad15170645df0001a2d1735,What was not central to European development since the Treaty of Rome 1957?,False,380ed5d16b3e18e5bda2da4ba87c2f5203099504f6e9d67415a4907077e2d2c0,4.0,0,1,0.25
+bm25,5ad26235d7d075001a429082,What is AlO?,False,1bb8a054229137a9005ea877e0aa27b556891e3521788927c58348127564b154,,0,0,0.0
+bm25,5acf98ad77cf76001a6853c6,"Apart from its mathematics and postgraduate schools, what else doe the university run?",False,7b34e1e2f91ddbd599fb3d4d15ae6acd8e8d1cac5db50bbd4e9817681d7881c5,1.0,1,1,1.0
+bm25,5ad28173d7d075001a4297fd,"Who discovered that electric and magnetic fields could be ""self-aware""",False,0c60fccfa0a5891c548480d13173fbf66ab99f403f068010ba84b6402ed6daff,1.0,1,1,1.0
+bm25,5ad24600d7d075001a428aca,How many Huguenots were killed altogether in France?,False,f390cbcc7bd65fb1d7a393f33688551d69b62380ab207dd27d85bce34922a884,2.0,0,1,0.5
+bm25,5ad4d2855b96ef001a10a1de,Which plateau is the left part of Vistula on?,False,bf76765a3bcbb3f449e01da2f548b3b094ea7b414aeef804bd1d9900155a93f6,1.0,1,1,1.0
+bm25,5725f2c838643c19005aceee,How many total acres is Woodward Park?,True,ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b,1.0,1,1,1.0
+bm25,5a6695e8f038b7001ab0c01a,X.25 and X.121 allowed what to happen?,False,b04a1b4486692807dd767cb5a92dd6ad22056e725f2af81c0800045aa31137f7,1.0,1,1,1.0
+bm25,5727e21e4b864d1900163f36,What Shakespeare Scholar is a faculty member at Harvard?,True,874533677a269c5d5fb8bd3a3213307ea1632c2236ea48b8da8182d07905fcc8,1.0,1,1,1.0
+bm25,572745c6708984140094db9a,A formal design team may be assembled to do what?,True,6b3c0a7178c7d09d6fcfaa669200e662a4c151d4d6093ed06907f82f1b10e5d3,1.0,1,1,1.0
+bm25,572fec30947a6a140053cdf3,What is the first major bend in the Rhine called?,True,f13e50f6e6854915c887789f95aac6c2b8ac4dfc887c56edb77102ecf62c7e08,1.0,1,1,1.0
+bm25,5710e8c8a58dae1900cd6b2a,French troops put down the Camisard uprisings between what years?,True,b4e5bc367ebb9b2d4ccef67770a2f67d1a323f808c17f89bede0f2af3b3a5f3f,1.0,1,1,1.0
+bm25,572fbf21a23a5019007fc93b,What is the mace displayed in?,True,695f7892d8dda7e75ff7ac287c45ae74caac840c17b5defa2ce1324a001b8dad,1.0,1,1,1.0
+bm25,572665ff708984140094c4c5,Finding what helps to determine if a fault is a normal fault or a thrust fault? ,True,e71eab6fb81f391a6f9f6f7ddf6a435221f7159360e4d7a0549e3b969d010395,1.0,1,1,1.0
