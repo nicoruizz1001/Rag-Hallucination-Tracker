@@ -87,6 +87,42 @@ def test_generate_answer_returns_text_metadata_and_nonnegative_latency(monkeypat
     assert result["done_reason"] == "stop"
 
 
+def test_generate_answer_passes_optional_structured_format(monkeypatch):
+    install_ollama_responses(monkeypatch)
+    captured = {}
+
+    def fake_chat(**kwargs):
+        captured.update(kwargs)
+        return SimpleNamespace(
+            message=SimpleNamespace(content='{"ok":true}'), done_reason="stop"
+        )
+
+    monkeypatch.setattr(ollama, "chat", fake_chat)
+    schema = {"type": "object", "properties": {"ok": {"type": "boolean"}}}
+
+    result = generation.generate_answer("system", "user", response_format=schema)
+
+    assert captured["format"] == schema
+    assert result["generated_answer"] == '{"ok":true}'
+
+
+def test_generate_answer_preserves_empty_structured_response_for_validation(monkeypatch):
+    install_ollama_responses(monkeypatch)
+    monkeypatch.setattr(
+        ollama,
+        "chat",
+        lambda **kwargs: SimpleNamespace(
+            message=SimpleNamespace(content=""), done_reason="stop"
+        ),
+    )
+
+    result = generation.generate_answer(
+        "system", "user", response_format={"type": "object"}
+    )
+
+    assert result["generated_answer"] == ""
+
+
 def test_generate_answer_raises_clear_error_when_service_is_unavailable(monkeypatch):
     def unavailable():
         raise ConnectionError("connection refused")

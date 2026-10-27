@@ -28,7 +28,7 @@ python -m pytest
 
 | Path | Purpose |
 |------|---------|
-| `src/` | Pipeline code: data prep, retrieval, generation, evaluation, experiments, plots |
+| `src/` | Pipeline code: data prep, retrieval, generation, retrieval evaluation, claim evaluation, experiments, plots |
 | `configs/` | Experiment configurations |
 | `data/` | Downloaded datasets and indexes (git-ignored) |
 | `results/` | Saved experiment outputs, tables, figures |
@@ -36,6 +36,27 @@ python -m pytest
 | `report/` | Research write-up |
 | [`report/annotation_guidelines.md`](report/annotation_guidelines.md) | Claim-support labels, annotation rules, synthetic examples, and human validation protocol |
 | `tests/` | pytest suite |
+
+## Claim-support evaluation
+
+`src/claim_evaluation.py` evaluates saved generation JSONL in two stages: it extracts factual claims from each saved question and answer, then checks each claim against all passages recorded as supplied to the generator. It does not regenerate answers, use reference answers or SQuAD labels, or change retrieval evaluation. Question correctness, citation support, and evidence-conditioned answerability remain separately marked unassessed/unverified. The default is a one-record smoke run; choose a larger `--limit` explicitly.
+
+Run against an existing generation file (PowerShell examples):
+
+```powershell
+python src/claim_evaluation.py --input results/generations/generations_20261026T204950624686Z.jsonl
+python src/claim_evaluation.py --input results/generations/generations_20261026T204950624686Z.jsonl --limit 8
+```
+
+Run the synthetic evidence demo, which prints extracted claims and judgments:
+
+```powershell
+python src/claim_evaluation.py --synthetic-demo
+```
+
+Each invocation creates a unique run directory under `results/claim_evaluation/`, with `answers.jsonl`, `claims.jsonl`, and `manifest.json`. The manifest and stage records include evaluator model identity/settings, prompts, raw model responses, latency, counts, and failures. The evaluator defaults to local Ollama model `llama3.2:3b`.
+
+Using the same model as generator and judge can produce correlated errors. Human validation, following [the annotation guidelines](report/annotation_guidelines.md), is required before reporting findings. The evaluator's schema and provenance checks validate output structure and excerpt references; they do not establish semantic correctness.
 
 ## Environment
 

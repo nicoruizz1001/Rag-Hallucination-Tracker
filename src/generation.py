@@ -26,8 +26,9 @@ def generate_answer(
     user_prompt,
     model="llama3.2:3b",
     generation_settings=None,
+    response_format=None,
 ):
-    """Generate an answer from the locally installed Ollama model."""
+    """Generate text from local Ollama, optionally requesting structured JSON."""
     try:
         installed_models = _field(ollama.list(), "models", [])
     except Exception as exc:
@@ -57,11 +58,16 @@ def generate_answer(
     ]
     try:
         start = time.perf_counter()
+        chat_options = {
+            "model": model,
+            "messages": messages,
+            "stream": False,
+            "options": options,
+        }
+        if response_format is not None:
+            chat_options["format"] = response_format
         response = ollama.chat(
-            model=model,
-            messages=messages,
-            stream=False,
-            options=options,
+            **chat_options,
         )
         latency_seconds = time.perf_counter() - start
     except Exception as exc:
@@ -71,7 +77,7 @@ def generate_answer(
 
     message = _field(response, "message", {})
     generated_answer = _field(message, "content")
-    if generated_answer is None or generated_answer == "":
+    if generated_answer is None or (generated_answer == "" and response_format is None):
         raise RuntimeError(f"Ollama returned an empty answer for model '{model}'")
 
     return {
