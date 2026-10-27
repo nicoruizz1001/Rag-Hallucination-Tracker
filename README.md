@@ -34,6 +34,7 @@ python -m pytest
 | `results/` | Saved experiment outputs, tables, figures |
 | `notebooks/` | Exploratory analysis |
 | `report/` | Research write-up |
+| [`report/annotation_guidelines.md`](report/annotation_guidelines.md) | Claim-support labels, annotation rules, synthetic examples, and human validation protocol |
 | `tests/` | pytest suite |
 
 ## Environment
