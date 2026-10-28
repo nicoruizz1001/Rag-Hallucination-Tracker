@@ -69,11 +69,17 @@ def test_sampling_is_reproducible_stratified_and_excludes_inspected_questions(tm
     assert "random.Random(42)" in first["procedure"]
 
 
-def evaluate_sample(tmp_path, review_dir, fail_question=None):
+def evaluate_sample(tmp_path, review_dir, fail_question=None, fail_extraction=None):
     def fake_generate(system, user, **kwargs):
-        data = json.loads(user.split("\n", 1)[1])
+        # Retry prompts append a correction note after the JSON payload.
+        data, _ = json.JSONDecoder().raw_decode(user.split("\n", 1)[1])
         if "claim extractor" in system.lower():
             answer = data["generated_answer"]
+            if fail_extraction and fail_extraction in answer:
+                return {"generated_answer": "{broken", "model": kwargs["model"],
+                        "model_digest": "x", "latency_seconds": 0.0,
+                        "generation_settings": kwargs["generation_settings"],
+                        "done_reason": "length"}
             claim = answer.split(", ", 1)[1]
             return {"generated_answer": json.dumps({"response_behavior": "no_abstention",
                                                     "claims": [{"claim": claim, "source_excerpt": claim}]}),
@@ -116,7 +122,7 @@ def test_export_blinds_reviewer_files_and_keeps_failures(tmp_path):
                    "bm25", "dense", "no_retrieval", "needs_review", "d1", "d2"):
         assert hidden not in text
     assert not re.search(r"q\d\d", text)  # no source question IDs
-    assert "SUPPORTED, CONTRADICTED, or NOT_ENOUGH_EVIDENCE" in text  # allowed-value help only
+    assert "SUPPORTED" not in text and "NOT_ENOUGH_EVIDENCE" not in text
     claims_rows = list(csv.DictReader((reviewer / "claims.csv").open(encoding="utf-8-sig")))
     assert claim_total == len(claims_rows) == len(items)
     assert all(row["human_support_label"] == "" for row in claims_rows)
@@ -166,7 +172,7 @@ def test_compare_reports_partial_agreement_and_rejects_invalid_labels(tmp_path):
                                    claim_ids[1]: {"human_support_label": "NOT_ENOUGH_EVIDENCE",
                                                   "human_claim_distorted": "yes"}}, "claim_id")
     fill(reviewer / "answers.csv", {"R001": {"human_abstention_behavior": "no_abstention",
-                                             "human_extraction_omissions": "Dropped a date."}},
+                                             "human_missing_claims": "Dropped a date."}},
          "item_id")
 
     _, report = human_review.compare(review_dir)
@@ -175,10 +181,97 @@ def test_compare_reports_partial_agreement_and_rejects_invalid_labels(tmp_path):
     assert report["support_agreement"] == {"agree": 1, "labelled": 2}
     assert report["confusion_human_by_automatic"]["NOT_ENOUGH_EVIDENCE"] == {"SUPPORTED": 1}
     assert report["claims_unlabelled"] == len(claim_ids) - 2
-    assert report["abstention_agreement"] == 1 and report["items_with_reported_omissions"] == 1
+    assert report["abstention_agreement"] == 1 and report["items_with_missing_claims"] == 1
     assert report["claims_marked_distorted"] == 1
     assert "not by itself complete human validation" in report["note"]
 
     fill(reviewer / "claims.csv", {claim_ids[2]: {"human_support_label": "TRUE"}}, "claim_id")
     with pytest.raises(ValueError, match="invalid support label"):
         human_review.compare(review_dir)
+
+
+def failing_fact(items):
+    return f"fact {items[0]['question_id'].lstrip('q').lstrip('0') or '0'} "
+
+
+def test_extraction_failure_stays_in_packet_with_explicit_status(tmp_path):
+    review_dir = draw(tmp_path)
+    items = manifest_of(review_dir)["items"]
+    run = evaluate_sample(tmp_path, review_dir, fail_extraction=failing_fact(items))
+
+    reviewer, claim_total = human_review.export(review_dir, run)
+
+    packet = (reviewer / "review_packet.md").read_text(encoding="utf-8")
+    first = packet.split("\n## ")[1]
+    assert first.startswith(items[0]["item_id"] + "\n")
+    assert "EXTRACTION UNAVAILABLE" in first and "**Doc 2:**" in first
+    rows = list(csv.DictReader((reviewer / "claims.csv").open(encoding="utf-8-sig")))
+    blank = [r for r in rows if r["claim_id"] == f"{items[0]['item_id']}-M1"]
+    assert blank and blank[0]["claim_text"] == "" and blank[0]["human_support_label"] == ""
+    assert claim_total == len(items) - 1
+    mapping = json.loads((review_dir / "coordinator" / "mapping.json").read_text(encoding="utf-8"))
+    entry = mapping["items"][0]
+    assert entry["extraction_status"] == "unavailable" and entry["claims"] == []
+    assert "done_reason=length" in entry["extraction_error"]
+    assert [a["done_reason"] for a in entry["extraction_attempts"]] == ["length", "length"]
+
+
+def test_verify_passes_clean_export_and_reports_totals(tmp_path):
+    review_dir = draw(tmp_path)
+    items = manifest_of(review_dir)["items"]
+    run = evaluate_sample(tmp_path, review_dir, fail_question=failing_fact(items))
+    human_review.export(review_dir, run)
+
+    _, result = human_review.verify(review_dir)
+
+    assert result["all_checks_passed"], result
+    totals = result["totals"]
+    assert totals["answers"] == len(items) and totals["claim_judgment_failures"] == 1
+    assert totals["blank_manual_fields"] == totals["blank_answer_fields"] + totals["blank_claim_fields"]
+    assert totals["blank_answer_fields"] == len(items) * 4
+    assert totals["blank_claim_fields"] == len(items) * 6
+    frozen = json.loads((review_dir / "coordinator" / "frozen_evaluator.json").read_text(encoding="utf-8"))
+    assert frozen["configuration"]["judgment_model"] == "qwen2.5:7b-instruct"
+    assert frozen["configuration"]["prompt_versions"]["judgment"] == claim_evaluation.JUDGMENT_PROMPT_VERSION
+
+
+@pytest.mark.parametrize("tamper", ["leak", "label", "drop", "generation"])
+def test_verify_detects_leaks_filled_labels_missing_items_and_changed_outputs(tmp_path, tamper):
+    review_dir = draw(tmp_path)
+    run = evaluate_sample(tmp_path, review_dir)
+    reviewer, _ = human_review.export(review_dir, run)
+    if tamper == "leak":
+        with (reviewer / "review_packet.md").open("a", encoding="utf-8") as stream:
+            stream.write("HIDDEN EXPLANATION TEXT.\n")
+        check = "no_automatic_decisions_in_reviewer_files"
+    elif tamper == "label":
+        first = list(csv.DictReader((reviewer / "claims.csv").open(encoding="utf-8-sig")))[0]
+        fill(reviewer / "claims.csv", {first["claim_id"]: {"human_support_label": "SUPPORTED"}}, "claim_id")
+        check = "no_human_labels_filled"
+    elif tamper == "drop":
+        rows = (reviewer / "answers.csv").read_text(encoding="utf-8-sig").splitlines()
+        (reviewer / "answers.csv").write_text("\n".join(rows[:-1]) + "\n", encoding="utf-8-sig")
+        check = "answer_count_matches_sample"
+    else:
+        with (tmp_path / "generations.jsonl").open("a", encoding="utf-8") as stream:
+            stream.write("{}\n")
+        check = "generation_outputs_unchanged"
+
+    _, result = human_review.verify(review_dir)
+
+    assert result["checks"][check] is False
+    assert result["all_checks_passed"] is False
+
+
+def test_frozen_evaluator_refuses_a_differently_configured_run(tmp_path):
+    review_dir = draw(tmp_path)
+    run = evaluate_sample(tmp_path, review_dir)
+    human_review.export(review_dir, run)
+    manifest = json.loads((run / "manifest.json").read_text(encoding="utf-8"))
+    manifest["judgment_model"] = "other:model"
+    (run / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    import shutil
+    shutil.rmtree(review_dir / "reviewer")
+
+    with pytest.raises(ValueError, match="differs from the frozen evaluator"):
+        human_review.export(review_dir, run)

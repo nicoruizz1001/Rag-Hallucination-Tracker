@@ -33,8 +33,18 @@ TARGET_CLAIMS = (50, 100)
 SUPPORT_LABELS = ("SUPPORTED", "CONTRADICTED", "NOT_ENOUGH_EVIDENCE")
 BEHAVIOR_LABELS = ("full_abstention", "partial_abstention", "no_abstention", "empty_response")
 YES_NO = ("yes", "no")
-ANSWER_FIELDS = ["item_id", "human_abstention_behavior", "human_extraction_omissions",
-                 "human_review_notes"]
+ANSWER_FIELDS = ["item_id", "human_abstention_behavior", "human_missing_claims",
+                 "human_omitted_qualifications_relationships", "human_review_notes"]
+EXTRACTION_UNAVAILABLE = (
+    "EXTRACTION UNAVAILABLE: automatic claim extraction did not produce a valid result "
+    "for this answer. Review the complete answer and list every factual claim yourself "
+    "in claims.csv (rows `{item_id}-M1`, `-M2`, ...; one blank row is provided)."
+)
+# Strings that only automatic decisions or source metadata would put in reviewer files.
+LEAK_MARKERS = ("SUPPORTED", "CONTRADICTED", "NOT_ENOUGH_EVIDENCE", "needs_review",
+                "review_reason", "explanation", "faithfulness", "is_answerable",
+                "reference_answer", "llama", "qwen", "bm25", "dense_basic", "dense_abstain",
+                "no_retrieval", "dense retrieval", "claim_extraction_v", "claim_judgment_v")
 CLAIM_FIELDS = ["claim_id", "item_id", "claim_text", "human_support_label",
                 "human_evidence_doc", "human_evidence_excerpt", "human_claim_distorted",
                 "human_distortion_note", "human_review_notes"]
@@ -182,24 +192,70 @@ saw them). Then fill:
 - `answers.csv`, one row per item:
   - `human_abstention_behavior`: full_abstention, partial_abstention,
     no_abstention, or empty_response.
-  - `human_extraction_omissions`: factual content stated in the answer that no
-    listed claim captures, including dropped names, numbers, qualifiers and
-    relationships. Leave it empty only if nothing is missing.
+  - `human_missing_claims`: factual statements in the answer that no listed
+    claim captures at all. Leave it empty only if nothing is missing.
+  - `human_omitted_qualifications_relationships`: names, numbers, dates,
+    qualifiers or relationships stated in the answer that a listed claim
+    dropped (e.g. "which fort was the first one", "up to an upper limit").
   - `human_review_notes`: anything else.
 - `claims.csv`, one row per listed claim:
-  - `human_support_label`: SUPPORTED, CONTRADICTED, or NOT_ENOUGH_EVIDENCE,
+  - `human_support_label`: one of the three labels in the guidelines,
     judged against all supplied passages.
-  - `human_evidence_doc` / `human_evidence_excerpt`: e.g. `Doc 2` plus exact text.
+  - `human_evidence_doc` / `human_evidence_excerpt`: the supporting or
+    contradicting passage, e.g. `Doc 2`, plus exact text.
   - `human_claim_distorted`: yes if the claim misstates what the answer says
     (added, reversed, or changed facts), otherwise no; explain in
     `human_distortion_note`.
-  - Optionally add rows for omitted claims with claim_id `<item_id>-M1`,
-    `-M2`, ..., and label them too.
+  - Add rows for missing claims with claim_id `<item_id>-M1`, `-M2`, ...,
+    and label them too. Items marked EXTRACTION UNAVAILABLE have no listed
+    claims and one blank `-M1` row to start from.
 
-A listed claim may be compound. Label it SUPPORTED only if every part is
-supported; if parts differ, label the whole claim by the least-supported part
+A listed claim may be compound. Count it as supported only if every part is
+supported; if parts differ, label the whole claim by its least-supported part
 and describe the split in the notes.
 """
+
+
+RETRY_POLICY = "one retry after a structural/provenance validation failure or done_reason=length"
+
+
+def evaluator_configuration(eval_manifest):
+    """The evaluator settings that must stay fixed for a validation round."""
+    prompts = eval_manifest.get("prompts", {})
+    return {
+        "extraction_model": eval_manifest.get("extraction_model"),
+        "extraction_model_digest": eval_manifest.get("extraction_model_digest"),
+        "judgment_model": eval_manifest.get("judgment_model"),
+        "judgment_model_digest": eval_manifest.get("judgment_model_digest"),
+        "prompt_versions": eval_manifest.get("prompt_versions"),
+        "prompt_sha256": {key: hashlib.sha256(text.encode("utf-8")).hexdigest()
+                          for key, text in sorted(prompts.items())},
+        "options": eval_manifest.get("options"),
+        "retry_policy": RETRY_POLICY,
+    }
+
+
+def _freeze_evaluator(coordinator, eval_manifest):
+    """Record the evaluator configuration once; refuse a different one later."""
+    config = evaluator_configuration(eval_manifest)
+    path = coordinator / "frozen_evaluator.json"
+    if path.exists():
+        frozen = json.loads(path.read_text(encoding="utf-8"))
+        if frozen["configuration"] != config:
+            raise ValueError(f"Evaluation run differs from the frozen evaluator in {path}")
+        return frozen
+    frozen = {"frozen_at_utc": _utc_now(), "evaluation_run_id": eval_manifest["run_id"],
+              "note": "Fixed for this validation round; do not tune after inspecting "
+                      "validation judgments.",
+              "configuration": config}
+    path.write_text(json.dumps(frozen, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return frozen
+
+
+def _extraction_unavailable(answer):
+    extraction = answer.get("extraction") or {}
+    return answer.get("evaluation_status") == "error" and (
+        not extraction or "error" in extraction or answer.get("response_behavior") is None)
 
 
 def export(review_dir, evaluation_run):
@@ -210,6 +266,9 @@ def export(review_dir, evaluation_run):
     eval_manifest = json.loads((evaluation_run / "manifest.json").read_text(encoding="utf-8"))
     if eval_manifest["input_sha256"] != _sha256_file(coordinator / "sample_input.jsonl"):
         raise ValueError("The evaluation run was not produced from this sample's input file")
+    if eval_manifest.get("run_status") not in {"completed", "completed_with_errors"}:
+        raise ValueError(f"Evaluation run status is {eval_manifest.get('run_status')!r}")
+    frozen = _freeze_evaluator(coordinator, eval_manifest)
     sources = _read_jsonl(coordinator / "sample_input.jsonl")
     answers = {a["source_record_index"]: a for a in _read_jsonl(evaluation_run / "answers.jsonl")}
     claims_by_answer = {}
@@ -229,13 +288,18 @@ def export(review_dir, evaluation_run):
         claims = sorted(claims_by_answer.get(answer["answer_id"], []),
                         key=lambda c: c["claim_index"])
         item_id = item["item_id"]
+        unavailable = _extraction_unavailable(answer)
         packet += [f"## {item_id}", "", f"**Question:** {source['question']}", "",
                    "**Generated answer (complete):**", "", "> " + source["generated_answer"]
                    .replace("\n", "\n> "), "", "**Supplied passages:**", ""]
         for doc_index, text in enumerate(source["retrieved_passage_texts"], start=1):
             packet += [f"- **Doc {doc_index}:** {text}"]
         packet += ["", "**Extracted claims:**", ""]
-        if not claims:
+        if unavailable:
+            packet += [f"- {EXTRACTION_UNAVAILABLE.format(item_id=item_id)}"]
+            claim_rows.append({"claim_id": f"{item_id}-M1", "item_id": item_id,
+                               "claim_text": "", **{f: "" for f in CLAIM_FIELDS[3:]}})
+        elif not claims:
             packet += ["- (no claims extracted)"]
         mapping_claims = []
         for claim in claims:
@@ -244,6 +308,7 @@ def export(review_dir, evaluation_run):
             claim_rows.append({"claim_id": claim_id, "item_id": item_id,
                                "claim_text": claim["claim"],
                                **{f: "" for f in CLAIM_FIELDS[3:]}})
+            judgment = claim.get("judgment") or {}
             mapping_claims.append({
                 "blind_claim_id": claim_id, "claim_id": claim["claim_id"],
                 "claim": claim["claim"], "source_excerpt": claim["source_excerpt"],
@@ -251,15 +316,29 @@ def export(review_dir, evaluation_run):
                 "explanation": claim["explanation"], "needs_review": claim["needs_review"],
                 "review_reason": claim["review_reason"],
                 "evaluation_status": claim["evaluation_status"],
+                "judgment_error": judgment.get("error"),
+                "judgment_attempts": [
+                    {"attempt": a.get("attempt"), "done_reason": a.get("done_reason"),
+                     "validation_error": a.get("validation_error")}
+                    for a in judgment.get("attempts", [])],
             })
         claim_total += len(claims)
         packet.append("")
         answer_rows.append({"item_id": item_id, **{f: "" for f in ANSWER_FIELDS[1:]}})
+        extraction = answer.get("extraction") or {}
         mapping_items.append({
             **item, "answer_id": answer["answer_id"],
             "doc_ids": source["retrieved_document_ids"],
+            "reference_answer": source.get("reference_answer"),
             "automatic_response_behavior": answer.get("response_behavior"),
             "evaluation_status": answer.get("evaluation_status"),
+            "extraction_status": "unavailable" if unavailable else "completed",
+            "extraction_error": extraction.get("error") or answer.get("error"),
+            "extraction_warnings": extraction.get("extraction_warnings", []),
+            "extraction_attempts": [
+                {"attempt": a.get("attempt"), "done_reason": a.get("done_reason"),
+                 "validation_error": a.get("validation_error")}
+                for a in extraction.get("attempts", [])],
             "needs_review": answer.get("needs_review"),
             "review_reason": answer.get("review_reason"),
             "faithfulness": answer.get("faithfulness"),
@@ -274,6 +353,8 @@ def export(review_dir, evaluation_run):
         "created_at_utc": _utc_now(),
         "evaluation_run": str(evaluation_run.resolve()),
         "evaluation_run_id": eval_manifest["run_id"],
+        "evaluation_run_status": eval_manifest.get("run_status"),
+        "frozen_evaluator": frozen["configuration"],
         "extraction_model": eval_manifest.get("extraction_model"),
         "judgment_model": eval_manifest.get("judgment_model"),
         "prompt_versions": eval_manifest.get("prompt_versions"),
@@ -284,6 +365,95 @@ def export(review_dir, evaluation_run):
     (coordinator / "mapping.json").write_text(
         json.dumps(mapping, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return reviewer, claim_total
+
+
+def verify(review_dir):
+    """Check the exported packet against the frozen sample; report totals only."""
+    review_dir = Path(review_dir)
+    coordinator, reviewer = review_dir / "coordinator", review_dir / "reviewer"
+    sample_manifest = json.loads((coordinator / "sample_manifest.json").read_text(encoding="utf-8"))
+    mapping = json.loads((coordinator / "mapping.json").read_text(encoding="utf-8"))
+    sources = _read_jsonl(coordinator / "sample_input.jsonl")
+    answers = _read_csv(reviewer / "answers.csv")
+    claims = _read_csv(reviewer / "claims.csv")
+    packet = (reviewer / "review_packet.md").read_text(encoding="utf-8")
+    reviewer_text = "".join(p.read_text(encoding="utf-8-sig") for p in sorted(reviewer.iterdir()))
+    checks = {}
+    expected_ids = [item["item_id"] for item in sample_manifest["items"]]
+    checks["answer_count_matches_sample"] = (
+        len(answers) == len(mapping["items"]) == len(sources) == sample_manifest["item_count"])
+    checks["item_ids_match_frozen_sample"] = (
+        [row["item_id"] for row in answers] == expected_ids
+        and [(i["item_id"], i["question_id"], i["configuration"], i["generation_line"])
+             for i in mapping["items"]]
+        == [(i["item_id"], i["question_id"], i["configuration"], i["generation_line"])
+            for i in sample_manifest["items"]])
+    checks["sample_input_unchanged"] = (
+        _sha256_file(coordinator / "sample_input.jsonl") == sample_manifest["sample_input_sha256"])
+    generations = Path(sample_manifest["generations_path"])
+    checks["generation_outputs_unchanged"] = (
+        _sha256_file(generations) == sample_manifest["generations_sha256"])
+    lines = _read_jsonl(generations)
+    checks["sample_records_match_generation_file"] = all(
+        lines[item["generation_line"] - 1] == source
+        for item, source in zip(sample_manifest["items"], sources))
+    sections = packet.split("\n## ")[1:]
+    checks["every_answer_has_full_answer_and_evidence"] = len(sections) == len(sources) and all(
+        section.startswith(item["item_id"] + "\n")
+        and ("> " + source["generated_answer"].replace("\n", "\n> ")) in section
+        and all(f"**Doc {n}:** {text}" in section
+                for n, text in enumerate(source["retrieved_passage_texts"], start=1))
+        and len(source["retrieved_passage_texts"]) > 0
+        for section, item, source in zip(sections, sample_manifest["items"], sources))
+    # Remove verbatim source and claim text, then look for anything only an
+    # automatic decision or source metadata could have contributed.
+    scrubbed = reviewer_text
+    verbatim = [s["question"] for s in sources] + [s["generated_answer"] for s in sources] + [
+        t for s in sources for t in s["retrieved_passage_texts"]] + [
+        c["claim"] for item in mapping["items"] for c in item["claims"]]
+    for text in sorted(verbatim, key=len, reverse=True):
+        scrubbed = scrubbed.replace(text, "")
+    leaked = sorted({m for m in LEAK_MARKERS if m in scrubbed})
+    secret_values = {str(v) for item in mapping["items"] for v in (
+        item["question_id"], item["answer_id"], *item["doc_ids"],
+        item["review_reason"] or None, item.get("extraction_error")) if v}
+    secret_values |= {str(v) for item in mapping["items"] for c in item["claims"]
+                      for v in (c["explanation"], c["review_reason"], c["judgment_error"],
+                                c["claim_id"]) if v}
+    secret_values |= {str(v) for v in mapping["frozen_evaluator"].values()
+                      if isinstance(v, str)}
+    # Very short values (e.g. test digests) would match by accident.
+    leaked += sorted(v[:40] for v in secret_values if len(v) >= 8 and v in scrubbed)
+    checks["no_automatic_decisions_in_reviewer_files"] = not leaked
+    checks["csv_columns_are_reviewer_fields_only"] = (
+        list(answers[0]) == ANSWER_FIELDS and list(claims[0]) == CLAIM_FIELDS)
+    human_cells = [row[f] for row in answers for f in ANSWER_FIELDS if f.startswith("human_")] + [
+        row[f] for row in claims for f in CLAIM_FIELDS if f.startswith("human_")]
+    checks["no_human_labels_filled"] = all(cell == "" for cell in human_cells)
+    unavailable = sum(item["extraction_status"] == "unavailable" for item in mapping["items"])
+    judgment_failures = sum(c["evaluation_status"] == "error"
+                            for item in mapping["items"] for c in item["claims"])
+    result = {
+        "verified_at_utc": _utc_now(),
+        "all_checks_passed": all(checks.values()),
+        "checks": checks,
+        "leaked_markers": leaked,
+        "totals": {
+            "answers": len(answers),
+            "claims_extracted": mapping["claim_count"],
+            "answers_with_extraction_unavailable": unavailable,
+            "answers_with_any_evaluation_error": sum(
+                item["evaluation_status"] == "error" for item in mapping["items"]),
+            "claim_judgment_failures": judgment_failures,
+            "claim_rows_for_review": len(claims),
+            "blank_manual_fields": len(human_cells),
+            "blank_answer_fields": len(answers) * (len(ANSWER_FIELDS) - 1),
+            "blank_claim_fields": len(claims) * sum(f.startswith("human_") for f in CLAIM_FIELDS),
+        },
+    }
+    path = coordinator / f"verification_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}.json"
+    path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return path, result
 
 
 def _read_csv(path):
@@ -349,8 +519,10 @@ def compare(review_dir):
         "items": len(answers),
         "abstention_labelled": len(behavior_pairs),
         "abstention_agreement": sum(h == a for h, a in behavior_pairs),
-        "items_with_reported_omissions": sum(
-            1 for row in answers if row["human_extraction_omissions"].strip()),
+        "items_with_missing_claims": sum(
+            1 for row in answers if row["human_missing_claims"].strip()),
+        "items_with_omitted_qualifications_relationships": sum(
+            1 for row in answers if row["human_omitted_qualifications_relationships"].strip()),
         "claims_marked_distorted": sum(
             1 for row in claims if row["human_claim_distorted"].strip().lower() == "yes"),
     }
@@ -374,6 +546,8 @@ def main(argv=None):
     e = sub.add_parser("export", help="write the blinded packet and coordinator mapping")
     e.add_argument("--review-dir", type=Path, required=True)
     e.add_argument("--evaluation-run", type=Path, required=True)
+    v = sub.add_parser("verify", help="check the exported packet; prints totals only")
+    v.add_argument("--review-dir", type=Path, required=True)
     c = sub.add_parser("compare", help="compare filled human labels with automatic ones")
     c.add_argument("--review-dir", type=Path, required=True)
     args = parser.parse_args(argv)
@@ -393,6 +567,15 @@ def main(argv=None):
         print(f"Reviewer packet: {reviewer}")
         print(f"Claims to review: {claim_total} (target {low}-{high}"
               + ("" if low <= claim_total <= high else "; OUTSIDE TARGET, see README") + ")")
+    elif args.command == "verify":
+        # Totals and check results only: no automatic labels or case-level output.
+        path, result = verify(args.review_dir)
+        print(f"Verification: {path}")
+        for name, passed in result["checks"].items():
+            print(f"  {'PASS' if passed else 'FAIL'}  {name}")
+        for name, value in result["totals"].items():
+            print(f"  {name}: {value}")
+        return 0 if result["all_checks_passed"] else 1
     else:
         path, report = compare(args.review_dir)
         print(f"Agreement report: {path}")
