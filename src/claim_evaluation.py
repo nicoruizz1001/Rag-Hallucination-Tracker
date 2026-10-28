@@ -651,7 +651,12 @@ def _evaluate_record(input_record, record_index, run_id, *, model=DEFAULT_MODEL,
                     claim_record["judgment"] = {"attempts": exc.attempts, "error": str(exc)}
                     answer_record["evaluation_status"] = "error"
                     answer_record["needs_review"] = True
-                    answer_record["review_reason"] = claim_record["review_reason"]
+                    # Append, so extraction warnings are not hidden by the failure.
+                    answer_record["review_reason"] = "; ".join(
+                        reason for reason in (answer_record["review_reason"],
+                                              f"Claim {index}: {claim_record['review_reason']}")
+                        if reason
+                    )
             claim_records.append(claim_record)
         answer_record["claim_count"] = len(claim_records)
         if not no_retrieval and claim_records:

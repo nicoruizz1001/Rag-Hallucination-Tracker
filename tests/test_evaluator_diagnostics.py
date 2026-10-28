@@ -259,3 +259,41 @@ def test_comparison_flags_runs_with_different_settings(tmp_path, monkeypatch):
     table = diag.compare([first, second], output_root=tmp_path / "out").read_text(encoding="utf-8")
 
     assert "**NO** — differs in options" in table
+
+
+def test_failed_judgments_are_unassessed_for_citations_not_counted_as_clean():
+    claim = "The Halvorsen Bridge opened in 1931."
+    judgment = lambda label, error=None: {"claim_index": 0, "claim": claim, "label": label,
+                                          "evidence": [], "explanation": "", "attempts": [{}],
+                                          "error": error, "needs_review": False}
+    record = {
+        "case_id": "c1", "category": "explicitly_supported", "generated_answer": claim,
+        "distractor_ids": ["x"], "extraction_error": None,
+        "extraction": {"claims": [{"claim": claim, "source_excerpt": claim}],
+                       "response_behavior": "no_abstention", "attempts": [{}]},
+        "judgments": {"relevant_only": [judgment("SUPPORTED")],
+                      "with_distractors": [judgment(None, "done_reason=length")]},
+    }
+    expected = {"cases": {"c1": EXPECTED["cases"]["c1"]}}
+
+    summary = diag.summarize(diag.score([record], expected), [record])
+
+    citations = summary["irrelevant_citations"]
+    assert citations["valid_with_distractor_judgments"] == 0
+    assert citations["failed_with_distractor_judgments_unassessed"] == 1
+    assert summary["labeled_judgments"] == {"correct": 1, "total": 2, "failed": 1}
+
+
+def test_comparison_names_the_corrected_citation_metric(tmp_path, monkeypatch):
+    fake_ollama(monkeypatch)
+    cases, expected = write_inputs(tmp_path)
+    run = diag.run_diagnostics(cases_path=cases, expected_path=expected, allow_unfrozen=True,
+                               output_root=tmp_path / "out")
+
+    table = diag.compare([run], output_root=tmp_path / "out").read_text(encoding="utf-8")
+    report = (run / "report.md").read_text(encoding="utf-8")
+
+    assert f"Citation metric: `{diag.CITATION_METRIC_VERSION}` (corrected)" in table
+    assert "previous denominator" in table
+    assert "Failed with-distractor judgments (citations unassessed)" in table
+    assert diag.CITATION_METRIC_VERSION in report

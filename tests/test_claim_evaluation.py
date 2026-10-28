@@ -403,7 +403,7 @@ def test_failed_judgment_keeps_null_label_and_flags_claim_and_answer(tmp_path, m
     manifest = json.loads((run / "manifest.json").read_text(encoding="utf-8"))
 
     assert answer["needs_review"] is True
-    assert answer["review_reason"].startswith("Judgment failed:")
+    assert "Judgment failed:" in answer["review_reason"]
     assert claim["needs_review"] is True
     assert claim["review_reason"].startswith("Judgment failed:")
     assert claim["label"] is None
@@ -760,3 +760,26 @@ def test_cli_configures_extraction_and_judgment_models_independently(tmp_path, m
     assert manifest["extraction_model"] == "llama3.2:3b"
     assert manifest["judgment_model"] == "judge:test"
     assert manifest["options"]["judgment"]["num_ctx"] == 4096
+
+
+def test_judgment_failure_does_not_hide_extraction_warnings(tmp_path, monkeypatch):
+    answer = "Ada Lin founded her first company, Brightwave, in Oslo."
+    record = {
+        "run_id": "r", "question_id": "q", "question": "Where?",
+        "configuration": "bm25_basic", "retrieval_method": "bm25",
+        "retrieved_document_ids": ["d1"], "retrieved_passage_texts": ["Text."],
+        "generated_answer": answer,
+    }
+    claims = [{"claim": "Ada Lin founded her first company in Oslo.", "source_excerpt": answer}]
+
+    def fake_generate(system, user, **kwargs):
+        if "claim extractor" in system.lower():
+            return model_result(extraction_response(claims))
+        return model_result("{broken", done_reason="length")
+
+    monkeypatch.setattr(claim_evaluation, "generate_answer", fake_generate)
+    answer_record, claim_records = claim_evaluation._evaluate_record(record, 1, "run")
+
+    assert "first company" in answer_record["review_reason"]
+    assert "Claim 0: Judgment failed" in answer_record["review_reason"]
+    assert claim_records[0]["evaluation_status"] == "error"

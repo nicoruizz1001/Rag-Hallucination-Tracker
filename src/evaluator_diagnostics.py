@@ -410,7 +410,9 @@ def summarize(cases, records):
         for c in CONDITIONS
     }
     claim_count = sum(len(case["claims"]) for case in cases)
-    distractor_judgments = sum(len(r["judgments"]["with_distractors"]) for r in records)
+    # Citation behaviour is only observable for valid judgments; failed ones
+    # are reported as unassessed rather than counted as citing nothing.
+    distractor_judgments = [j for r in records for j in r["judgments"]["with_distractors"]]
     citing = {(case["case_id"], c["claim_index"]) for case in cases
               for c in case["irrelevant_citations"] if c["condition"] == "with_distractors"}
     return {
@@ -423,8 +425,11 @@ def summarize(cases, records):
                           "claims_judged_in_both": claim_count},
         "irrelevant_citations": {
             "excerpts": sum(len(c["irrelevant_citations"]) for c in cases),
+            "metric": CITATION_METRIC_VERSION,
             "judgments_citing_distractor": len(citing),
-            "with_distractor_judgments": distractor_judgments,
+            "valid_with_distractor_judgments": sum(j["error"] is None for j in distractor_judgments),
+            "failed_with_distractor_judgments_unassessed": sum(
+                j["error"] is not None for j in distractor_judgments),
         },
         "behavior": {"correct": sum(c["behavior_correct"] for c in cases), "total": len(cases)},
         "extraction_failures": {"count": sum(1 for c in cases if c["extraction_error"]),
@@ -471,8 +476,9 @@ def render_report(manifest, cases, request_stats, request_issues):
         f"- Extraction omissions: {_ratio(summary['omissions']['count'], summary['omissions']['required_facts'])} required facts",
         f"- Unmatched claims (manual review; possible invented claims): {_ratio(summary['unmatched_claims']['count'], summary['unmatched_claims']['claims'])}",
         f"- Label changes when distractors were added: {_ratio(summary['label_changes']['count'], summary['label_changes']['claims_judged_in_both'])} claims",
-        f"- Irrelevant (distractor) citations: {summary['irrelevant_citations']['excerpts']} excerpts; "
-        f"{_ratio(summary['irrelevant_citations']['judgments_citing_distractor'], summary['irrelevant_citations']['with_distractor_judgments'])} with-distractor judgments cite one",
+        f"- Irrelevant (distractor) citations [{summary['irrelevant_citations']['metric']}]: {summary['irrelevant_citations']['excerpts']} excerpts; "
+        f"{_ratio(summary['irrelevant_citations']['judgments_citing_distractor'], summary['irrelevant_citations']['valid_with_distractor_judgments'])} valid with-distractor judgments cite one; "
+        f"{summary['irrelevant_citations']['failed_with_distractor_judgments_unassessed']} failed judgments unassessed",
         f"- Judgment failures: {_ratio(summary['judgment_failures']['count'], summary['judgment_failures']['judgments'])}",
         "", "## Request inspection", "",
         f"- Requests sent to Ollama: {request_stats['requests']}",
@@ -598,6 +604,18 @@ def rescore(run_dir, *, expected_path=EXPECTED_PATH):
 
 
 COMPARABILITY_KEYS = ("diagnostic_set", "prompt_sha256", "schema_sha256", "options", "conditions")
+CITATION_METRIC_VERSION = "valid_judgments_denominator_v2"
+CITATION_METRIC_NOTE = (
+    "Distractor-citation rates divide by valid with-distractor judgments only; failed "
+    "judgments have no usable evidence, so their citation behaviour is counted separately "
+    "as unassessed, never as citing nothing. Older saved files use the previous "
+    "denominator (all with-distractor judgments, so failed ones were implicitly counted as "
+    "citing nothing): the report.md/manifest.json summaries of every run up to and including "
+    "evaluator_diag_20261028T010828943558Z_50ac1e1618aa, and the tables "
+    "comparison_20261028T003747027926Z.md and comparison_20261028T010314208995Z.md. "
+    "Those historical files are left unchanged; this table recomputes every column with "
+    "the corrected definition."
+)
 
 
 def compare(run_dirs, *, output_root=RESULTS_ROOT):
@@ -605,15 +623,28 @@ def compare(run_dirs, *, output_root=RESULTS_ROOT):
     manifests = [json.loads((Path(d) / "manifest.json").read_text(encoding="utf-8"))
                  for d in run_dirs]
     for manifest in manifests:
-        if "summary" not in manifest or "stages" not in manifest:
+        if "stages" not in manifest or "diagnostic_set" not in manifest:
             raise ValueError(f"{manifest['run_id']} predates the comparison format; "
                              "re-run it with the current evaluator_diagnostics.py")
     mismatches = [
         key for key in COMPARABILITY_KEYS
         if len({json.dumps(m.get(key), sort_keys=True) for m in manifests}) > 1
     ]
-    s = [m["summary"] for m in manifests]
-    rt = lambda m, stage, key: m["summary"]["runtime"][stage][key]
+    # Summaries are recomputed from the saved records (no model calls), so all
+    # columns use the current metric definitions without rewriting old runs.
+    claim_sets, s = [], []
+    for run_dir, manifest in zip(run_dirs, manifests):
+        expected_path = Path(manifest["expected_path"])
+        if content_sha256(expected_path) != manifest["diagnostic_set"]["expected"]:
+            raise ValueError(f"Expected labels for {manifest['run_id']} changed since the run")
+        expected_doc = json.loads(expected_path.read_text(encoding="utf-8"))
+        records = [json.loads(line) for line in
+                   (Path(run_dir) / "records.jsonl").read_text(encoding="utf-8").splitlines()]
+        claim_sets.append([[c["claim"] for c in r["extraction"]["claims"]] for r in records])
+        summary = summarize(score(records, expected_doc), records)
+        summary["wall_seconds"] = manifest["wall_seconds"]
+        s.append(summary)
+    rt = lambda x, stage, key: x["runtime"][stage][key]
     rows = [
         ("Extraction model", [m["stages"]["extraction"]["model"]
                               + (f" (reused from {m['extraction_reused_from']})" if m.get("extraction_reused_from") else "")
@@ -622,6 +653,8 @@ def compare(run_dirs, *, output_root=RESULTS_ROOT):
         ("Judgment model digest", [str(m["model_digests"]["judgment"])[:12] for m in manifests]),
         ("Prompt versions", [f"{m['prompt_versions']['extraction']} / {m['prompt_versions']['judgment']}"
                              for m in manifests]),
+        ("Same extracted claims as first column", ["yes" if claims == claim_sets[0] else "**no**"
+                                                   for claims in claim_sets]),
         ("**Correct labels / labeled judgments**",
          [_ratio(x["labeled_judgments"]["correct"], x["labeled_judgments"]["total"]) for x in s]),
         ("  of which failed (counted incorrect)", [str(x["labeled_judgments"]["failed"]) for x in s]),
@@ -638,11 +671,16 @@ def compare(run_dirs, *, output_root=RESULTS_ROOT):
     rows += [
         ("Label changes after adding distractors",
          [_ratio(x["label_changes"]["count"], x["label_changes"]["claims_judged_in_both"]) for x in s]),
-        ("Judgments citing a distractor", [
+        ("Valid with-distractor judgments citing a distractor", [
             _ratio(x["irrelevant_citations"]["judgments_citing_distractor"],
-                   x["irrelevant_citations"]["with_distractor_judgments"]) for x in s]),
+                   x["irrelevant_citations"]["valid_with_distractor_judgments"]) for x in s]),
+        ("Failed with-distractor judgments (citations unassessed)", [
+            str(x["irrelevant_citations"]["failed_with_distractor_judgments_unassessed"]) for x in s]),
         ("Distractor excerpts cited (total)", [str(x["irrelevant_citations"]["excerpts"]) for x in s]),
         ("Response behavior correct", [_ratio(x["behavior"]["correct"], x["behavior"]["total"]) for x in s]),
+        ("Required facts preserved",
+         [_ratio(x["omissions"]["required_facts"] - x["omissions"]["count"],
+                 x["omissions"]["required_facts"]) for x in s]),
         ("Extraction omissions / required facts",
          [_ratio(x["omissions"]["count"], x["omissions"]["required_facts"]) for x in s]),
         ("Unmatched claims (possible invented; manual review)",
@@ -651,14 +689,14 @@ def compare(run_dirs, *, output_root=RESULTS_ROOT):
                                                     x["extraction_failures"]["total"]) for x in s]),
         ("Judgment failures after retry", [_ratio(x["judgment_failures"]["count"],
                                                   x["judgment_failures"]["judgments"]) for x in s]),
-        ("Extraction retries / calls", [f"{rt(m, 'extraction', 'retries')}/{rt(m, 'extraction', 'calls')}"
-                                        for m in manifests]),
-        ("Judgment retries / calls", [f"{rt(m, 'judgment', 'retries')}/{rt(m, 'judgment', 'calls')}"
-                                      for m in manifests]),
+        ("Extraction retries / calls", [f"{rt(x, 'extraction', 'retries')}/{rt(x, 'extraction', 'calls')}"
+                                        for x in s]),
+        ("Judgment retries / calls", [f"{rt(x, 'judgment', 'retries')}/{rt(x, 'judgment', 'calls')}"
+                                      for x in s]),
         ("Model time extraction / judgment (s)",
-         [f"{rt(m, 'extraction', 'model_seconds'):.0f} / {rt(m, 'judgment', 'model_seconds'):.0f}"
-          for m in manifests]),
-        ("Run wall-clock (s)", [f"{m['wall_seconds']:.0f}" for m in manifests]),
+         [f"{rt(x, 'extraction', 'model_seconds'):.0f} / {rt(x, 'judgment', 'model_seconds'):.0f}"
+          for x in s]),
+        ("Run wall-clock (s)", [f"{x['wall_seconds']:.0f}" for x in s]),
     ]
     header = "| Metric | " + " | ".join(f"`{m['run_id']}`" for m in manifests) + " |"
     lines = [
@@ -667,7 +705,9 @@ def compare(run_dirs, *, output_root=RESULTS_ROOT):
         "Denominators: labeled judgments are (claim, condition) pairs whose claim matches an "
         "expected fact; they depend on the extracted claims, so they differ between runs unless "
         "extraction is reused (`--reuse-extraction`). Failed judgments remain in the denominator "
-        "as incorrect. Unmatched claims are listed in each run's report.md for manual review.", "",
+        "as incorrect. Unmatched claims are listed in each run's report.md for manual review. "
+        "All metrics are recomputed from each run's saved records.", "",
+        f"**Citation metric: `{CITATION_METRIC_VERSION}` (corrected).** {CITATION_METRIC_NOTE}", "",
         "Comparable configuration (frozen cases/labels, prompts, schemas, options, conditions): "
         + ("**yes**" if not mismatches else f"**NO** — differs in {', '.join(mismatches)}"), "",
         header, "|" + "---|" * (len(manifests) + 1),
