@@ -1,0 +1,35 @@
+{
+  "run_id": "evaluator_diag_20261028T002018877657Z_ee1774f2edee",
+  "started_at_utc": "2026-10-28T00:20:18.879131Z",
+  "ended_at_utc": "2026-10-28T00:22:34.561095Z",
+  "disclaimer": "Development diagnostic set, written while investigating known evaluator failures. It is small and not independently sampled, so these numbers are NOT an unbiased accuracy benchmark.",
+  "evaluator_model": "llama3.2:3b",
+  "evaluator_model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "prompt_versions": {
+    "extraction": "claim_extraction_v4",
+    "judgment": "claim_judgment_v8"
+  },
+  "cases_path": "C:\\Uni\\CSPROJECTS3RDYEAR\\rag_hallucination\\data\\evaluator_diagnostics\\cases.json",
+  "cases_sha256": "cafe35148cf89c53678911cd8ceb9861c46cb4b3f31fed71597a43869aaf0f80",
+  "conditions": [
+    "relevant_only",
+    "with_distractors"
+  ],
+  "expected_path": "C:\\Uni\\CSPROJECTS3RDYEAR\\rag_hallucination\\data\\evaluator_diagnostics\\expected_labels.json",
+  "expected_sha256": "6f7dadd0c9002ef0a0ae3a91909c73190ffc80eabf3678a866f570b423143997",
+  "request_stats": {
+    "requests": 67,
+    "done_reasons": {
+      "stop": 67
+    },
+    "max_prompt_eval_count": 1067,
+    "num_ctx": [
+      8192
+    ],
+    "mid_sentence_explanations": 2
+  },
+  "request_issues": [
+    "request 47 (multi_relation_role, judgment, relevant_only): raw explanation ends mid-sentence (done_reason=stop): ...'Established date and role of director'",
+    "request 65 (multi_relation_ordinal, judgment, with_distractors): raw explanation ends mid-sentence (done_reason=stop): ...\"nformation about the bookshop's location and date of opening\""
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "description": "Synthetic evaluator diagnostic inputs. Development set for inspecting evaluator failure modes; NOT an unbiased accuracy benchmark. Expected labels live in expected_labels.json and are never sent to the evaluator.",
+  "distractor_passages": {
+    "corran_bridge": "The Corran Bridge opened to traffic in 1928 after four years of construction. Its central span was replaced in 1975.",
+    "accra_herbarium": "The Accra Herbarium was established in 2006 by the botanist Kwame Mensah, who catalogued over 9,000 specimens.",
+    "linden_south_portal": "Miguel Herrera carved the south portal of the Linden Chapel in 1702. He had previously worked on the cathedral cloister in Burgos.",
+    "harrow_line": "The Harrow Line employed 300 workers at its peak in 1910. The line closed to passengers in 1958.",
+    "ostrava_quartet": "Pavel Novak composed the Ostrava String Quartet in 1874 while teaching at the conservatory.",
+    "brennan_canal": "The Brennan Canal is 58 kilometres long and was completed in 1821.",
+    "harbour_festival": "The Marlow Brass Band performed at the 1962 Harbour Festival and returned the following year.",
+    "weather_station": "In 1983, Ivo Brandt became the third director of the Ashford Coastal Weather Station. He replaced the station's wind instruments that year.",
+    "kepler_telescope": "The Meridian Telescope was installed on Mount Corra in 1967 by Halden Instruments.",
+    "bookshop_kiel": "Sofia Lund opened her first bookshop, Paper Lantern, in Kiel in 2011.",
+    "sourdough": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+  },
+  "cases": [
+    {
+      "case_id": "explicit_supported",
+      "category": "explicitly_supported",
+      "question": "When did the Halvorsen Bridge open?",
+      "generated_answer": "The Halvorsen Bridge opened to traffic in 1931.",
+      "relevant_passages": ["The Halvorsen Bridge, which spans the Tessel River, opened to traffic in 1931. It was designed by the engineer Mauno Riis."],
+      "distractors": ["corran_bridge", "sourdough", "harbour_festival"]
+    },
+    {
+      "case_id": "faithful_paraphrase",
+      "category": "faithful_paraphrase",
+      "question": "Who established the Lagos Seed Bank, and when?",
+      "generated_answer": "The Lagos Seed Bank was established in 2004 by Dr. Amara Okafor.",
+      "relevant_passages": ["Dr. Amara Okafor founded the Lagos Seed Bank in 2004 to preserve local crop varieties."],
+      "distractors": ["accra_herbarium", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "pronoun_resolution",
+      "category": "pronoun_resolution",
+      "question": "Who discovered comet C/1994 Vance?",
+      "generated_answer": "Teodora Vance discovered comet C/1994 Vance.",
+      "relevant_passages": ["Teodora Vance joined the Brightwater Observatory in 1988 as a junior astronomer. Six years later, she discovered the comet that now bears her name, C/1994 Vance."],
+      "distractors": ["weather_station", "sourdough", "kepler_telescope"]
+    },
+    {
+      "case_id": "surname_resolution",
+      "category": "pronoun_resolution",
+      "question": "Who carved the north portal of the Linden Chapel?",
+      "generated_answer": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+      "relevant_passages": ["Rafael Ortiz trained as a stonemason in Seville. Ortiz later carved the north portal of the Linden Chapel."],
+      "distractors": ["linden_south_portal", "sourdough", "harrow_line"]
+    },
+    {
+      "case_id": "contradicted_quantity",
+      "category": "direct_contradiction",
+      "question": "How long is the Kestrel Canal?",
+      "generated_answer": "The Kestrel Canal is 58 kilometres long.",
+      "relevant_passages": ["The Kestrel Canal is 42 kilometres long and has eleven locks."],
+      "distractors": ["brennan_canal", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "contradicted_negation",
+      "category": "direct_contradiction",
+      "question": "Did the Selby Choir perform at the 1962 Harbour Festival?",
+      "generated_answer": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+      "relevant_passages": ["The Selby Choir performed at the 1962 Harbour Festival, singing three pieces by local composers."],
+      "distractors": ["harbour_festival", "sourdough", "ostrava_quartet"]
+    },
+    {
+      "case_id": "unsupported_added_quantity",
+      "category": "unsupported_quantity_or_date",
+      "question": "When did the Orchard Line railway open?",
+      "generated_answer": "The Orchard Line railway opened in 1902 and employed 300 workers.",
+      "relevant_passages": ["The Orchard Line railway opened in 1902 between Dunmore and Pell Junction."],
+      "distractors": ["harrow_line", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "unsupported_added_date",
+      "category": "unsupported_quantity_or_date",
+      "question": "Who composed the Fjordsong Symphony?",
+      "generated_answer": "Mira Solberg composed the Fjordsong Symphony in 1874.",
+      "relevant_passages": ["Mira Solberg composed the Fjordsong Symphony for a small chamber orchestra."],
+      "distractors": ["ostrava_quartet", "sourdough", "harbour_festival"]
+    },
+    {
+      "case_id": "pure_refusal_self_knowledge",
+      "category": "pure_refusal",
+      "question": "Where is the Kestrel Canal?",
+      "generated_answer": "I don't have information about the Kestrel Canal. Could you provide more context about which region you mean?",
+      "relevant_passages": ["The Kestrel Canal is 42 kilometres long and has eleven locks."],
+      "distractors": ["brennan_canal", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "pure_refusal_documents",
+      "category": "pure_refusal",
+      "question": "When did the Orchard Line close?",
+      "generated_answer": "The provided documents do not say when the Orchard Line closed.",
+      "relevant_passages": ["The Orchard Line railway opened in 1902 between Dunmore and Pell Junction."],
+      "distractors": ["harrow_line", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "partial_refusal",
+      "category": "pure_refusal",
+      "question": "When did the Kestrel Canal open, and how many locks does it have?",
+      "generated_answer": "I could not find when the Kestrel Canal opened, but it has eleven locks.",
+      "relevant_passages": ["The Kestrel Canal is 42 kilometres long and has eleven locks."],
+      "distractors": ["brennan_canal", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "multi_relation_role",
+      "category": "multiple_relationships",
+      "question": "Who introduced overnight observation shifts at the Tarn Valley Weather Station?",
+      "generated_answer": "Hana Ruiz, the station's second director, introduced overnight observation shifts in 1979.",
+      "relevant_passages": ["In 1979, Hana Ruiz became the second director of the Tarn Valley Weather Station. That same year she introduced overnight observation shifts."],
+      "distractors": ["weather_station", "sourdough", "harrow_line"]
+    },
+    {
+      "case_id": "multi_relation_mixed",
+      "category": "multiple_relationships",
+      "question": "Where and when was the Ardent Telescope installed?",
+      "generated_answer": "The Ardent Telescope, built by Corvane Optics, was installed on Mount Selby in 1967.",
+      "relevant_passages": ["Corvane Optics built the Ardent Telescope. It was installed on Mount Selby in 1971."],
+      "distractors": ["kepler_telescope", "sourdough", "corran_bridge"]
+    },
+    {
+      "case_id": "multi_relation_ordinal",
+      "category": "multiple_relationships",
+      "question": "Where did Lena Hartmann open her second bookshop?",
+      "generated_answer": "Lena Hartmann opened her second bookshop, Inkwell & Oak, in Bremen in 2011.",
+      "relevant_passages": ["Lena Hartmann's first bookshop opened in Kiel in 2003. In 2011 she opened a second shop, Inkwell & Oak, in Bremen."],
+      "distractors": ["bookshop_kiel", "sourdough", "harbour_festival"]
+    }
+  ]
+}

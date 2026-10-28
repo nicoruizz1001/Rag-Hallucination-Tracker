@@ -87,6 +87,9 @@ def generate_answer(
         "generation_settings": options,
         "latency_seconds": latency_seconds,
         "done_reason": _field(response, "done_reason"),
+        # Token counts let callers detect silent prompt truncation at num_ctx.
+        "prompt_eval_count": _field(response, "prompt_eval_count"),
+        "eval_count": _field(response, "eval_count"),
     }
 
 

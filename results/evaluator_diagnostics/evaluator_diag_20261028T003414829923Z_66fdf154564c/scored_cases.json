@@ -1,0 +1,973 @@
+[
+  {
+    "case_id": "explicit_supported",
+    "category": "explicitly_supported",
+    "generated_answer": "The Halvorsen Bridge opened to traffic in 1931.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "The Halvorsen Bridge opened to traffic in 1931."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "opened_1931",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Halvorsen Bridge opened to traffic in 1931.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "opened_1931",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Halvorsen Bridge opened to traffic in 1931.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Halvorsen Bridge opened to traffic in 1931.",
+        "claim_index": 0,
+        "label": "SUPPORTED",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "faithful_paraphrase",
+    "category": "faithful_paraphrase",
+    "generated_answer": "The Lagos Seed Bank was established in 2004 by Dr. Amara Okafor.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 2,
+    "claims": [
+      "The Lagos Seed Bank was established in 2004.",
+      "Dr. Amara Okafor established the Lagos Seed Bank."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "founded_by_okafor",
+        "condition": "relevant_only",
+        "claim_index": 1,
+        "claim": "Dr. Amara Okafor established the Lagos Seed Bank.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "founded_by_okafor",
+        "condition": "with_distractors",
+        "claim_index": 1,
+        "claim": "Dr. Amara Okafor established the Lagos Seed Bank.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "founded_2004",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Lagos Seed Bank was established in 2004.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "founded_2004",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Lagos Seed Bank was established in 2004.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Lagos Seed Bank was established in 2004.",
+        "claim_index": 0,
+        "label": "SUPPORTED",
+        "excerpt": "The Accra Herbarium was established in 2006 by the botanist Kwame Mensah, who catalogued over 9,000 specimens."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "Dr. Amara Okafor established the Lagos Seed Bank.",
+        "claim_index": 1,
+        "label": "SUPPORTED",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "pronoun_resolution",
+    "category": "pronoun_resolution",
+    "generated_answer": "Teodora Vance discovered comet C/1994 Vance.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "Teodora Vance discovered comet C/1994 Vance."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "discovered_comet",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Teodora Vance discovered comet C/1994 Vance.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "discovered_comet",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Teodora Vance discovered comet C/1994 Vance.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "surname_resolution",
+    "category": "pronoun_resolution",
+    "generated_answer": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "Rafael Ortiz carved the north portal of the Linden Chapel."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "carved_north_portal",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "carved_north_portal",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "relevant_only",
+        "fact_id": "carved_north_portal",
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "carved_north_portal",
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "Rafael Ortiz carved the north portal of the Linden Chapel.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Harrow Line employed 300 workers at its peak in 1910. The line closed to passengers in 1958."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "contradicted_quantity",
+    "category": "direct_contradiction",
+    "generated_answer": "The Kestrel Canal is 58 kilometres long.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "The Kestrel Canal is 58 kilometres long."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "length_58",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "length_58",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "relevant_only",
+        "fact_id": "length_58",
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "length_58",
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Brennan Canal is 58 kilometres long and was completed in 1821."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Kestrel Canal is 58 kilometres long.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "contradicted_negation",
+    "category": "direct_contradiction",
+    "generated_answer": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "The Selby Choir did not perform at the 1962 Harbour Festival."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "did_not_perform",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+        "expected": "CONTRADICTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "did_not_perform",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+        "expected": "CONTRADICTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "relevant_only",
+        "fact_id": "did_not_perform",
+        "claim": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+        "expected": "CONTRADICTED",
+        "actual": "SUPPORTED"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "did_not_perform",
+        "claim": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+        "expected": "CONTRADICTED",
+        "actual": "SUPPORTED"
+      }
+    ],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Selby Choir did not perform at the 1962 Harbour Festival.",
+        "claim_index": 0,
+        "label": "SUPPORTED",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "unsupported_added_quantity",
+    "category": "unsupported_quantity_or_date",
+    "generated_answer": "The Orchard Line railway opened in 1902 and employed 300 workers.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 2,
+    "claims": [
+      "The Orchard Line railway opened in 1902.",
+      "The Orchard Line railway employed 300 workers."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "opened_1902",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Orchard Line railway opened in 1902.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "opened_1902",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Orchard Line railway opened in 1902.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "workers_300",
+        "condition": "relevant_only",
+        "claim_index": 1,
+        "claim": "The Orchard Line railway employed 300 workers.",
+        "expected": "NOT_ENOUGH_EVIDENCE",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "workers_300",
+        "condition": "with_distractors",
+        "claim_index": 1,
+        "claim": "The Orchard Line railway employed 300 workers.",
+        "expected": "NOT_ENOUGH_EVIDENCE",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Orchard Line railway opened in 1902.",
+        "claim_index": 0,
+        "label": "SUPPORTED",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Orchard Line railway employed 300 workers.",
+        "claim_index": 1,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Harrow Line employed 300 workers at its peak in 1910."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "unsupported_added_date",
+    "category": "unsupported_quantity_or_date",
+    "generated_answer": "Mira Solberg composed the Fjordsong Symphony in 1874.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "Mira Solberg composed the Fjordsong Symphony.",
+      "The Fjordsong Symphony was composed in 1874."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "composed_1874",
+        "condition": "relevant_only",
+        "claim_index": 1,
+        "claim": "The Fjordsong Symphony was composed in 1874.",
+        "expected": "NOT_ENOUGH_EVIDENCE",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "composed_1874",
+        "condition": "with_distractors",
+        "claim_index": 1,
+        "claim": "The Fjordsong Symphony was composed in 1874.",
+        "expected": "NOT_ENOUGH_EVIDENCE",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "composer_only",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "composer_only",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "with_distractors",
+        "fact_id": "composer_only",
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [
+      {
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "Mira Solberg composed the Fjordsong Symphony.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Marlow Brass Band performed at the 1962 Harbour Festival and returned the following year."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Fjordsong Symphony was composed in 1874.",
+        "claim_index": 1,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Fjordsong Symphony was composed in 1874.",
+        "claim_index": 1,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Marlow Brass Band performed at the 1962 Harbour Festival and returned the following year."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "pure_refusal_self_knowledge",
+    "category": "pure_refusal",
+    "generated_answer": "I don't have information about the Kestrel Canal. Could you provide more context about which region you mean?",
+    "expected_behavior": "full_abstention",
+    "actual_behavior": "full_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 1,
+    "required_fact_count": 0,
+    "claims": [],
+    "fact_judgments": [],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "pure_refusal_documents",
+    "category": "pure_refusal",
+    "generated_answer": "The provided documents do not say when the Orchard Line closed.",
+    "expected_behavior": "full_abstention",
+    "actual_behavior": "full_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 1,
+    "required_fact_count": 0,
+    "claims": [],
+    "fact_judgments": [],
+    "omissions": [],
+    "label_errors": [],
+    "label_changes": [],
+    "irrelevant_citations": [],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "partial_refusal",
+    "category": "pure_refusal",
+    "generated_answer": "I could not find when the Kestrel Canal opened, but it has eleven locks.",
+    "expected_behavior": "partial_abstention",
+    "actual_behavior": "partial_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 1,
+    "claims": [
+      "The Kestrel Canal has eleven locks."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "eleven_locks",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Kestrel Canal has eleven locks.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "eleven_locks",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Kestrel Canal has eleven locks.",
+        "expected": "SUPPORTED",
+        "actual": null,
+        "failed": true
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "with_distractors",
+        "fact_id": "eleven_locks",
+        "claim": "The Kestrel Canal has eleven locks.",
+        "expected": "SUPPORTED",
+        "actual": null
+      }
+    ],
+    "label_changes": [
+      {
+        "claim": "The Kestrel Canal has eleven locks.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": null
+      }
+    ],
+    "irrelevant_citations": [],
+    "unmatched_claims": [],
+    "judgment_errors": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Kestrel Canal has eleven locks.",
+        "error": "claim judgment output invalid after one retry: ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+      }
+    ],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "multi_relation_role",
+    "category": "multiple_relationships",
+    "generated_answer": "Hana Ruiz, the station's second director, introduced overnight observation shifts in 1979.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [
+      "No claim keeps description \"station's second director\" together with name 'Hana Ruiz'"
+    ],
+    "extraction_retries": 0,
+    "required_fact_count": 2,
+    "claims": [
+      "Hana Ruiz introduced overnight observation shifts in 1979.",
+      "The Tarn Valley Weather Station had a second director."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "introduced_shifts",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Hana Ruiz introduced overnight observation shifts in 1979.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "introduced_shifts",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Hana Ruiz introduced overnight observation shifts in 1979.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [
+      "second_director"
+    ],
+    "label_errors": [
+      {
+        "condition": "with_distractors",
+        "fact_id": "introduced_shifts",
+        "claim": "Hana Ruiz introduced overnight observation shifts in 1979.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [
+      {
+        "claim": "Hana Ruiz introduced overnight observation shifts in 1979.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "claim": "The Tarn Valley Weather Station had a second director.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "Hana Ruiz introduced overnight observation shifts in 1979.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Tarn Valley Weather Station had a second director.",
+        "claim_index": 1,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [
+      {
+        "claim": "The Tarn Valley Weather Station had a second director.",
+        "labels": {
+          "relevant_only": "SUPPORTED",
+          "with_distractors": "NOT_ENOUGH_EVIDENCE"
+        }
+      }
+    ],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "multi_relation_mixed",
+    "category": "multiple_relationships",
+    "generated_answer": "The Ardent Telescope, built by Corvane Optics, was installed on Mount Selby in 1967.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 2,
+    "claims": [
+      "The Ardent Telescope was installed on Mount Selby.",
+      "The Ardent Telescope was installed in 1967."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "installed_1967",
+        "condition": "relevant_only",
+        "claim_index": 1,
+        "claim": "The Ardent Telescope was installed in 1967.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "installed_1967",
+        "condition": "with_distractors",
+        "claim_index": 1,
+        "claim": "The Ardent Telescope was installed in 1967.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "on_mount_selby",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "The Ardent Telescope was installed on Mount Selby.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "on_mount_selby",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "The Ardent Telescope was installed on Mount Selby.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [
+      "built_by_corvane"
+    ],
+    "label_errors": [
+      {
+        "condition": "relevant_only",
+        "fact_id": "installed_1967",
+        "claim": "The Ardent Telescope was installed in 1967.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "installed_1967",
+        "claim": "The Ardent Telescope was installed in 1967.",
+        "expected": "CONTRADICTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "on_mount_selby",
+        "claim": "The Ardent Telescope was installed on Mount Selby.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [
+      {
+        "claim": "The Ardent Telescope was installed on Mount Selby.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "The Ardent Telescope was installed on Mount Selby.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Meridian Telescope was installed on Mount Corra in 1967 by Halden Instruments."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "The Ardent Telescope was installed in 1967.",
+        "claim_index": 1,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "The Meridian Telescope was installed on Mount Corra in 1967 by Halden Instruments."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  },
+  {
+    "case_id": "multi_relation_ordinal",
+    "category": "multiple_relationships",
+    "generated_answer": "Lena Hartmann opened her second bookshop, Inkwell & Oak, in Bremen in 2011.",
+    "expected_behavior": "no_abstention",
+    "actual_behavior": "no_abstention",
+    "extraction_error": null,
+    "extraction_reused_from": null,
+    "extraction_warnings": [],
+    "extraction_retries": 0,
+    "required_fact_count": 3,
+    "claims": [
+      "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+      "Inkwell & Oak is Lena Hartmann's second bookshop."
+    ],
+    "fact_judgments": [
+      {
+        "fact_id": "second_bookshop_identity",
+        "condition": "relevant_only",
+        "claim_index": 1,
+        "claim": "Inkwell & Oak is Lena Hartmann's second bookshop.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "second_bookshop_identity",
+        "condition": "with_distractors",
+        "claim_index": 1,
+        "claim": "Inkwell & Oak is Lena Hartmann's second bookshop.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "in_bremen",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "in_bremen",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      },
+      {
+        "fact_id": "in_2011",
+        "condition": "relevant_only",
+        "claim_index": 0,
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "SUPPORTED",
+        "failed": false
+      },
+      {
+        "fact_id": "in_2011",
+        "condition": "with_distractors",
+        "claim_index": 0,
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE",
+        "failed": false
+      }
+    ],
+    "omissions": [],
+    "label_errors": [
+      {
+        "condition": "with_distractors",
+        "fact_id": "in_bremen",
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      },
+      {
+        "condition": "with_distractors",
+        "fact_id": "in_2011",
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "expected": "SUPPORTED",
+        "actual": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "label_changes": [
+      {
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "relevant_only": "SUPPORTED",
+        "with_distractors": "NOT_ENOUGH_EVIDENCE"
+      }
+    ],
+    "irrelevant_citations": [
+      {
+        "condition": "with_distractors",
+        "claim": "Lena Hartmann opened Inkwell & Oak in Bremen in 2011.",
+        "claim_index": 0,
+        "label": "NOT_ENOUGH_EVIDENCE",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      },
+      {
+        "condition": "with_distractors",
+        "claim": "Inkwell & Oak is Lena Hartmann's second bookshop.",
+        "claim_index": 1,
+        "label": "SUPPORTED",
+        "excerpt": "A sourdough starter is a fermented mixture of flour and water that contains wild yeast and lactic acid bacteria."
+      }
+    ],
+    "unmatched_claims": [],
+    "judgment_errors": [],
+    "behavior_correct": true
+  }
+]

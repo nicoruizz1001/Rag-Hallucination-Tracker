@@ -22,6 +22,11 @@ models/
 # Large dataset / index artifacts (keep folder structure via .gitkeep)
 data/*
 !data/.gitkeep
+# Frozen evaluator diagnostic set (small, synthetic, versioned with the code)
+!data/evaluator_diagnostics/
+data/evaluator_diagnostics/*
+!data/evaluator_diagnostics/cases.json
+!data/evaluator_diagnostics/expected_labels.json
 data/cache/
 *.faiss
 *.index

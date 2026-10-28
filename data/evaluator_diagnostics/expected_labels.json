@@ -1,0 +1,93 @@
+{
+  "description": "Expected behaviour for cases.json. Loaded only after all evaluator calls finish; never included in evaluator prompts. A fact matches an extracted claim when the claim contains every must_contain string and no must_not_contain string (case-insensitive). Optional facts are not counted as omissions when absent. Revision note: after the first live run (evaluator_diag_20261028T001508672653Z_ab4555c9e2fb), faithful_paraphrase was changed from one combined founder+year fact to two facts, because splitting them is a faithful decomposition, not an omission.",
+  "cases": {
+    "explicit_supported": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "opened_1931", "must_contain": ["Halvorsen", "1931"], "label": "SUPPORTED"}
+      ]
+    },
+    "faithful_paraphrase": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "founded_by_okafor", "must_contain": ["Okafor", "Lagos Seed Bank"], "label": "SUPPORTED"},
+        {"fact_id": "founded_2004", "must_contain": ["Lagos Seed Bank", "2004"], "label": "SUPPORTED"}
+      ]
+    },
+    "pronoun_resolution": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "discovered_comet", "must_contain": ["Teodora", "discover"], "label": "SUPPORTED"}
+      ]
+    },
+    "surname_resolution": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "carved_north_portal", "must_contain": ["Rafael Ortiz", "north portal"], "label": "SUPPORTED"}
+      ]
+    },
+    "contradicted_quantity": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "length_58", "must_contain": ["58"], "label": "CONTRADICTED"}
+      ]
+    },
+    "contradicted_negation": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "did_not_perform", "must_contain": ["Selby Choir", "not"], "label": "CONTRADICTED"}
+      ]
+    },
+    "unsupported_added_quantity": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "opened_1902", "must_contain": ["1902"], "must_not_contain": ["300"], "label": "SUPPORTED"},
+        {"fact_id": "workers_300", "must_contain": ["300"], "label": "NOT_ENOUGH_EVIDENCE"}
+      ]
+    },
+    "unsupported_added_date": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "composed_1874", "must_contain": ["1874"], "label": "NOT_ENOUGH_EVIDENCE"},
+        {"fact_id": "composer_only", "must_contain": ["Solberg", "Fjordsong"], "must_not_contain": ["1874"], "label": "SUPPORTED", "optional": true}
+      ]
+    },
+    "pure_refusal_self_knowledge": {
+      "response_behavior": "full_abstention",
+      "facts": []
+    },
+    "pure_refusal_documents": {
+      "response_behavior": "full_abstention",
+      "facts": []
+    },
+    "partial_refusal": {
+      "response_behavior": "partial_abstention",
+      "facts": [
+        {"fact_id": "eleven_locks", "must_contain": ["eleven"], "label": "SUPPORTED"}
+      ]
+    },
+    "multi_relation_role": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "second_director", "must_contain": ["Ruiz", "second director"], "label": "SUPPORTED"},
+        {"fact_id": "introduced_shifts", "must_contain": ["Ruiz", "overnight"], "label": "SUPPORTED"}
+      ]
+    },
+    "multi_relation_mixed": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "built_by_corvane", "must_contain": ["Corvane", "Ardent"], "must_not_contain": ["1967"], "label": "SUPPORTED"},
+        {"fact_id": "installed_1967", "must_contain": ["1967"], "label": "CONTRADICTED"},
+        {"fact_id": "on_mount_selby", "must_contain": ["Mount Selby"], "must_not_contain": ["1967"], "label": "SUPPORTED", "optional": true}
+      ]
+    },
+    "multi_relation_ordinal": {
+      "response_behavior": "no_abstention",
+      "facts": [
+        {"fact_id": "second_bookshop_identity", "must_contain": ["second", "Inkwell"], "label": "SUPPORTED"},
+        {"fact_id": "in_bremen", "must_contain": ["Inkwell", "Bremen"], "label": "SUPPORTED"},
+        {"fact_id": "in_2011", "must_contain": ["Inkwell", "2011"], "label": "SUPPORTED"}
+      ]
+    }
+  }
+}
