@@ -1,0 +1,27 @@
+{
+  "verified_at_utc": "2026-10-28T02:24:33.735278Z",
+  "all_checks_passed": true,
+  "checks": {
+    "answer_count_matches_sample": true,
+    "item_ids_match_frozen_sample": true,
+    "sample_input_unchanged": true,
+    "generation_outputs_unchanged": true,
+    "sample_records_match_generation_file": true,
+    "every_answer_has_full_answer_and_evidence": true,
+    "no_automatic_decisions_in_reviewer_files": true,
+    "csv_columns_are_reviewer_fields_only": true,
+    "no_human_labels_filled": true
+  },
+  "leaked_markers": [],
+  "totals": {
+    "answers": 36,
+    "claims_extracted": 55,
+    "answers_with_extraction_unavailable": 5,
+    "answers_with_any_evaluation_error": 17,
+    "claim_judgment_failures": 19,
+    "claim_rows_for_review": 60,
+    "blank_manual_fields": 504,
+    "blank_answer_fields": 144,
+    "blank_claim_fields": 360
+  }
+}

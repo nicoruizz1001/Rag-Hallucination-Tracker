@@ -154,20 +154,40 @@ Answer-level `review_reason` previously showed only the judgment failure and hid
    - **Size:** 36 answers, 6 per (RAG configuration × SQuAD answerability) stratum across `bm25_basic`, `dense_basic` and `dense_abstain`. Each question appears once. `no_retrieval` is excluded because it has no supplied passages.
    - **Exclusions:** questions already inspected during debugging, found by scanning every `results/claim_evaluation/*/answers.jsonl` and other generation files. This found the two development-check questions (`5733ea04…`, `5ad26a5f…`). Any other question you inspected by hand should be added with `--exclude-question-id`, and the sample redrawn before evaluation.
    - **Record:** the exact procedure, exclusions and stratum counts are in `coordinator/sample_manifest.json`.
-2. **Evaluate the sample** with the provisional evaluator: 36 answers, not the full benchmark.
-3. **Export** the blinded packet:
-   - `reviewer/` contains `review_packet.md`, with complete answers, full passages labelled Doc 1… in generator order, and extracted claims. It also holds the instructions and blank `answers.csv` / `claims.csv`.
-   - Hidden from reviewers: automatic labels, explanations, evidence excerpts, review flags, and model/configuration names.
-   - `coordinator/mapping.json` holds source IDs and all automatic decisions. Reviewers must not open it.
-   - The target is 50–100 claims. Because sample size was fixed beforehand, a count outside the target is reported, not fixed by resampling.
-4. **Review:** reviewers fill support labels, evidence doc/excerpt, distorted-claim flags, abstention behaviour, extraction omissions (missing names, numbers, qualifiers, relationships) and notes, following `report/annotation_guidelines.md`. They may add omitted claims as `<item>-M1` rows.
-5. **Compare:** writes `coordinator/agreement_<timestamp>.json`. It reports partial labelling as partial and never declares validation complete.
+2. **Evaluate the sample** (done, 2026-10-28): 36 answers, not the full benchmark. Run `coordinator/evaluation/claim_eval_20261028T015900914560Z_0dd1e4b7fb61`, status `completed_with_errors`.
+   - **Frozen evaluator** (`coordinator/frozen_evaluator.json`):
+     - Extraction: `llama3.2:3b` (digest `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`).
+     - Judgment: `qwen2.5:7b-instruct` (digest `845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e`).
+     - Prompts `claim_extraction_v5` / `claim_judgment_v9`, with their SHA-256 hashes; default options; one retry.
+     - `export` refuses any evaluation run with a different configuration. Do not tune this evaluator during the validation round.
+   - **Workflow totals only:** automatic labels for the held-out sample are deliberately not reported here before human review.
+     - Answers: 36 processed, all present in the packet.
+     - Claims: 55 extracted.
+     - Extraction: unavailable for 5 answers (3 non-verbatim source excerpts, 1 negation check, 1 output limit). These are shown to reviewers with full answers, passages and a blank claim row.
+     - Judgment: 19 of 55 claims failed, 18 of them from runaway output hitting `num_predict` (`done_reason=length`). Their labels are null and the failures are recorded in `coordinator/mapping.json`.
+     - 17 answers have at least one failure.
+     - This structural failure rate is far above the synthetic diagnostic's (2/36) and must be addressed before any 400-record run. That would be a new evaluator version, which needs a fresh held-out validation sample.
+3. **Export** (done) the blinded packet to `reviewer/`:
+   - `review_packet.md`: complete answers, full passages labelled Doc 1… in generator order, extracted claims, and an explicit EXTRACTION UNAVAILABLE status where needed. It sits alongside the instructions and blank `answers.csv` (36 rows) and `claims.csv` (60 rows: 55 extracted claims plus 5 blank rows for extraction-unavailable answers).
+   - 504 blank manual fields in total.
+   - Hidden from reviewers: automatic labels, explanations, evidence excerpts, review warnings, failure reasons, model/configuration names, and SQuAD answerability/reference answers.
+   - `coordinator/mapping.json` holds source IDs, every automatic decision, extraction warnings, and judgment/extraction failure reasons with per-attempt `done_reason`. Reviewers must not open it.
+   - The target is 50–100 claims. Sample size was fixed beforehand, so the count was never adjusted by resampling.
+4. **Verify** (done; all checks passed; `coordinator/verification_20261028T022433735278Z.json`). The checks:
+   - 36 answers, with item IDs and generation lines matching the frozen sample.
+   - The sample input and the 400-record generation file are unchanged (SHA-256 `0caf7497…`).
+   - Every item contains its full answer and every passage.
+   - No automatic decisions or source metadata in reviewer files.
+   - Only reviewer columns, and no human field filled.
+5. **Review** (not started): reviewers fill support labels, supporting/contradicting evidence, missing claims, omitted qualifications and relationships, distorted-claim flags, abstention behaviour, and notes, following `report/annotation_guidelines.md`. They may add missing claims as `<item>-M1` rows.
+6. **Compare:** writes `coordinator/agreement_<timestamp>.json`. It reports partial labelling as partial and never declares validation complete.
 
 ```powershell
 python src/human_review.py sample --seed 42 --per-stratum 6        # already run; re-running makes a new directory
 python src/claim_evaluation.py --input results/human_review/review_20261028T012916Z_seed42/coordinator/sample_input.jsonl --limit 36 --extraction-model llama3.2:3b --judgment-model qwen2.5:7b-instruct --output-root results/human_review/review_20261028T012916Z_seed42/coordinator/evaluation
-python src/human_review.py export --review-dir results/human_review/review_20261028T012916Z_seed42 --evaluation-run results/human_review/review_20261028T012916Z_seed42/coordinator/evaluation/<run_dir>
-python src/human_review.py compare --review-dir results/human_review/review_20261028T012916Z_seed42
+python src/human_review.py export --review-dir results/human_review/review_20261028T012916Z_seed42 --evaluation-run results/human_review/review_20261028T012916Z_seed42/coordinator/evaluation/claim_eval_20261028T015900914560Z_0dd1e4b7fb61
+python src/human_review.py verify --review-dir results/human_review/review_20261028T012916Z_seed42   # prints check results and totals only
+python src/human_review.py compare --review-dir results/human_review/review_20261028T012916Z_seed42  # after reviewers fill the CSVs
 ```
 
 Eight-record real-data check: the first 8 records of the saved 400-record generation file (2 questions × 4 configurations). It writes a new run directory and leaves the generation records unchanged. Do not raise `--limit` to run all 400 records without deciding to.

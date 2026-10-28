@@ -1,0 +1,34 @@
+{
+  "frozen_at_utc": "2026-10-28T02:24:33.503396Z",
+  "evaluation_run_id": "claim_eval_20261028T015900914560Z_0dd1e4b7fb61",
+  "note": "Fixed for this validation round; do not tune after inspecting validation judgments.",
+  "configuration": {
+    "extraction_model": "llama3.2:3b",
+    "extraction_model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "judgment_model": "qwen2.5:7b-instruct",
+    "judgment_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "prompt_versions": {
+      "extraction": "claim_extraction_v5",
+      "judgment": "claim_judgment_v9"
+    },
+    "prompt_sha256": {
+      "extraction_system": "98caf1102aba27b414a5e0e7d09280022d28d404af248a424546b1d2ddcd0edf",
+      "judgment_system": "6e6762ffb781fcedf6af7892c9afc01167cff631825ccfde695b15d91db6d928"
+    },
+    "options": {
+      "extraction": {
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1024,
+        "num_ctx": 8192
+      },
+      "judgment": {
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1536,
+        "num_ctx": 8192
+      }
+    },
+    "retry_policy": "one retry after a structural/provenance validation failure or done_reason=length"
+  }
+}

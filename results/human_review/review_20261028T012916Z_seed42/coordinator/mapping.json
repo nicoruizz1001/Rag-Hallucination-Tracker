@@ -1,0 +1,2651 @@
+{
+  "created_at_utc": "2026-10-28T02:24:33.520163Z",
+  "evaluation_run": "C:\\Uni\\CSPROJECTS3RDYEAR\\rag_hallucination\\results\\human_review\\review_20261028T012916Z_seed42\\coordinator\\evaluation\\claim_eval_20261028T015900914560Z_0dd1e4b7fb61",
+  "evaluation_run_id": "claim_eval_20261028T015900914560Z_0dd1e4b7fb61",
+  "evaluation_run_status": "completed_with_errors",
+  "frozen_evaluator": {
+    "extraction_model": "llama3.2:3b",
+    "extraction_model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "judgment_model": "qwen2.5:7b-instruct",
+    "judgment_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "prompt_versions": {
+      "extraction": "claim_extraction_v5",
+      "judgment": "claim_judgment_v9"
+    },
+    "prompt_sha256": {
+      "extraction_system": "98caf1102aba27b414a5e0e7d09280022d28d404af248a424546b1d2ddcd0edf",
+      "judgment_system": "6e6762ffb781fcedf6af7892c9afc01167cff631825ccfde695b15d91db6d928"
+    },
+    "options": {
+      "extraction": {
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1024,
+        "num_ctx": 8192
+      },
+      "judgment": {
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1536,
+        "num_ctx": 8192
+      }
+    },
+    "retry_policy": "one retry after a structural/provenance validation failure or done_reason=length"
+  },
+  "extraction_model": "llama3.2:3b",
+  "judgment_model": "qwen2.5:7b-instruct",
+  "prompt_versions": {
+    "extraction": "claim_extraction_v5",
+    "judgment": "claim_judgment_v9"
+  },
+  "claim_count": 55,
+  "claim_count_within_target": true,
+  "items": [
+    {
+      "item_id": "R001",
+      "generation_line": 152,
+      "question_id": "5728e8212ca10214002daa6e",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_dfe8cdb7b7e9fdbf609133f9",
+      "doc_ids": [
+        "b0b415698a08be3715334c86bcf911274e5b53530b1037d075a0f6e9107df2ea",
+        "fd93028701526b473dbe93cb4ded11a23207c124c84b16733c2ee2e9b442c706",
+        "d3683b277766779b663c8154455034cafe15388f870f4b875fba1e113af91660"
+      ],
+      "reference_answer": [
+        "suspect's talking to criminal investigators",
+        "responding to investigators' questions",
+        "responding to investigators' questions",
+        "grant a consent search of his property,",
+        "talking to criminal investigators",
+        "responding to investigators' questions"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: ValueError: Evidence item 0 excerpt is not verbatim in its passage; Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 831); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R001-C1",
+          "claim_id": "claim_dbb8908af6d8814a41b6fec1",
+          "claim": "a suspect's talking to criminal investigators can serve no useful purpose and may be harmful.",
+          "source_excerpt": "it is generally agreed that a suspect's talking to criminal investigators can serve no useful purpose and may be harmful.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: ValueError: Evidence item 0 excerpt is not verbatim in its passage",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: ValueError: Evidence item 0 excerpt is not verbatim in its passage",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R001-C2",
+          "claim_id": "claim_9c338b73a4d5a6e58f37afb8",
+          "claim": "Thoreau's quote suggests that a civil disobedient should consider whether they will treat the investigator as a neighbor and well-disposed man, or as a maniac and disturber of the peace, and see if they can get over this obstruction to their neighborliness without a ruder and more impetuous thought or speech corresponding with their action.",
+          "source_excerpt": "Thoreau's quote suggests that a civil disobedient should consider whether they will treat the investigator as a neighbor and well-disposed man, or as a maniac and disturber of the peace, and see if they can get over this obstruction to their neighborliness without a ruder and more impetuous thought or speech corresponding with their action.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 831); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 831); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 831); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R002",
+      "generation_line": 370,
+      "question_id": "5725f2c838643c19005aceee",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_458e9a672fee988b5aa2586e",
+      "doc_ids": [
+        "ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b",
+        "325b9415640f2472970fc17f76f5003bc1bbc570f4683d899e36f754823a82a7",
+        "01fbee86abe8e1fdb157b2ec40b6bdbb181baa78b7843fc6874859b9c6d9e482"
+      ],
+      "reference_answer": [
+        "300 acres",
+        "300",
+        "300"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R002-C1",
+          "claim_id": "claim_fe6bd97f904fabc8c471af47",
+          "claim": "The total acres of Woodward Park is 300.",
+          "source_excerpt": "the initial 235 acres of Woodward Park, combined with additional acres acquired later by the City, brings the park to a total of 300 acres.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b",
+              "excerpt": "The initial 235 acres (0.95 km2), combined with additional acres acquired later by the City, brings the park to a sizable 300 acres (1.2 km2)."
+            }
+          ],
+          "explanation": "The passage explicitly states that Woodward Park is 300 acres.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R002-C2",
+          "claim_id": "claim_18db1f42d00031a18abac6bb",
+          "claim": "Woodward Park has 235 acres initially.",
+          "source_excerpt": "the initial 235 acres of Woodward Park, combined with additional acres acquired later by the City, brings the park to a total of 300 acres.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b",
+              "excerpt": "The initial 235 acres (0.95 km2), combined with additional acres acquired later by the City, brings the park to a sizable 300 acres (1.2 km2)."
+            }
+          ],
+          "explanation": "The passage explicitly states that the initial size of Woodward Park was 235 acres.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R002-C3",
+          "claim_id": "claim_bef652fd9e10a23e2685368f",
+          "claim": "Woodward Park has 300 acres in total.",
+          "source_excerpt": "the initial 235 acres of Woodward Park, combined with additional acres acquired later by the City, brings the park to a total of 300 acres.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "ea77756dac40f15e9f8138b99bee439722589f230e2a8715a831bf02ff3b1c0b",
+              "excerpt": "The initial 235 acres (0.95 km2), combined with additional acres acquired later by the City, brings the park to a sizable 300 acres (1.2 km2)."
+            }
+          ],
+          "explanation": "The passage explicitly states that Woodward Park has 300 acres in total.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R003",
+      "generation_line": 320,
+      "question_id": "5a67a898f038b7001ab0c3f5",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_f73a89a5556abdbd9a813711",
+      "doc_ids": [
+        "cf3314dc1ff1c19a23260f955334192ba867e2b07ef93e9d0d07451dfe6631c6",
+        "8a1e73994613f7c76c60df5b5fa0bbf0387c8c4c1fd6cdf6522691e28bc33d2d",
+        "2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 1 source excerpt is not verbatim in the answer"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R003-C1",
+          "claim_id": "claim_76af3973d24c3809d1caa4df",
+          "claim": "The Tuition Fee Supplement is geared to students enrolled in priority courses in post-secondary and non-degree programmes, including vocational and technical courses.",
+          "source_excerpt": "According to [Doc 1], the Tuition Fee Supplement is geared to students enrolled in priority courses in post-secondary and non-degree programmes, including vocational and technical courses.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "cf3314dc1ff1c19a23260f955334192ba867e2b07ef93e9d0d07451dfe6631c6",
+              "excerpt": "The Tuition Fee Supplement is geared to students enrolled in priority courses in post-secondary and non-degree programmes, including vocational and technical courses."
+            }
+          ],
+          "explanation": "The passage directly supports the claim by stating that the Tuition Fee Supplement is geared towards students enrolled in priority courses in post-secondary and non-degree programmes, including vocational and technical courses, which matches the claim exactly without any contradictions or ambiguities in the other passages provided.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R004",
+      "generation_line": 162,
+      "question_id": "5ad10f94645df0001a2d0bc6",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_51b3f4dcf940c88dc96efb58",
+      "doc_ids": [
+        "dd04072038d1a3ede59bf62dd3dc9ade4227b046627d4885431216fa66204dee",
+        "4f4c81ae038012c4fba4f9b9d5af1edba076741a21c3a6d3c06b83ed01143eed",
+        "80050447c9b41fb5fac1950338fd3ace00106108cadec17c27aa5b41f7aee5cf"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 0.0,
+      "claims": [
+        {
+          "blind_claim_id": "R004-C1",
+          "claim_id": "claim_451a5b4dcfadb710bbf7d701",
+          "claim": "the Treaty on European Union (TEU) does not rule on the validity of commitments entered into by member states between themselves before the treaty was signed.",
+          "source_excerpt": "According to [Doc 2], the Treaty on European Union (TEU) does not rule on the validity of commitments entered into by member states between themselves before the treaty was signed.",
+          "automatic_label": "CONTRADICTED",
+          "evidence": [
+            {
+              "document_id": "4f4c81ae038012c4fba4f9b9d5af1edba076741a21c3a6d3c06b83ed01143eed",
+              "excerpt": "The TEU specifically excludes certain regions, for example the Faroe Islands, from the jurisdiction of European Union law. Treaties apply as soon as they enter into force, unless stated otherwise, and are generally concluded for an unlimited period. The TEU provides that commitments entered into by the member states between themselves before the treaty was signed no longer apply.[vague]"
+            }
+          ],
+          "explanation": "The passage explicitly states that the TEU excludes commitments entered into by member states before the treaty was signed, contradicting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R005",
+      "generation_line": 62,
+      "question_id": "5733a2a9d058e614000b5f2b",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_9847dcb70e9359bfeabc6245",
+      "doc_ids": [
+        "96487eda760f5bfa959c6a45ae9719d65ff38f88506a3c48debe04c7539f2c27",
+        "de308e41aa84b64f8c0380e4021ce99dfb8b520d42b8a543f77ef7f6f3c88a00",
+        "501203b730c0f3270043cbb23105201ff5376b0fd2de78b257175fa90c937ad8"
+      ],
+      "reference_answer": [
+        "Polish and international artists",
+        "modern art by Polish and international artists",
+        "Polish and international artists a"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R005-C1",
+          "claim_id": "claim_9f735fb819aef1814dc4a949",
+          "claim": "The Zachęta National Gallery of Art organizes exhibitions of modern art.",
+          "source_excerpt": "According to [Doc 1], the Zachęta National Gallery of Art organizes exhibitions of modern art by Polish and international artists.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "96487eda760f5bfa959c6a45ae9719d65ff38f88506a3c48debe04c7539f2c27",
+              "excerpt": "Zachęta National Gallery of Art, the oldest exhibition site in Warsaw, with a tradition stretching back to the mid-19th century organises exhibitions of modern art by Polish and international artists and promotes art in many other ways."
+            }
+          ],
+          "explanation": "The passage explicitly states that Zachęta National Gallery of Art organises exhibitions of modern art.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R005-C2",
+          "claim_id": "claim_2754e4eb73d1b0365dc2f132",
+          "claim": "The Zachęta National Gallery of Art organizes exhibitions of art from Polish and international artists.",
+          "source_excerpt": "According to [Doc 1], the Zachęta National Gallery of Art organizes exhibitions of modern art by Polish and international artists.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "96487eda760f5bfa959c6a45ae9719d65ff38f88506a3c48debe04c7539f2c27",
+              "excerpt": "Zachęta National Gallery of Art, the oldest exhibition site in Warsaw, with a tradition stretching back to the mid-19th century organises exhibitions of modern art by Polish and international artists and promotes art in many other ways."
+            }
+          ],
+          "explanation": "The passage explicitly states that Zachęta National Gallery of Art organises exhibitions of modern art by Polish and international artists.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R006",
+      "generation_line": 290,
+      "question_id": "5725c337271a42140099d167",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_77f37514cd4cc26d2a780ef8",
+      "doc_ids": [
+        "ee73f593c26ad38e58d299361ba118fcf077591f71e9d4ed9515efb8b2fc75f2",
+        "f54da4edb14741599b317e246ffe56becbfd450806ace7773701841b9f5b06c4",
+        "5621a695e0f4cee7162cef3437520925a230303661d56d42374bb5adaf0aaaf9"
+      ],
+      "reference_answer": [
+        "groups of large, stiffened cilia",
+        "stiffened cilia",
+        "stiffened cilia"
+      ],
+      "automatic_response_behavior": "partial_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 340); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R006-C1",
+          "claim_id": "claim_35c5d674c89f89215a6865c9",
+          "claim": "coastal beroids use huge mouths armed with groups of large, stiffened cilia that act as teeth.",
+          "source_excerpt": "According to [Doc 1], coastal beroids use huge mouths armed with groups of large, stiffened cilia that act as teeth.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 340); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 340); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 references an unknown document ID"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 340); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R007",
+      "generation_line": 198,
+      "question_id": "5a2eb84ba83784001a7d2423",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_94bba93c4a30c009cf05942c",
+      "doc_ids": [
+        "0d50de71a8220db34991fd3710e965ad95973a5e898da92d2e09819ee0ff21b8",
+        "679435646d97368fa3947fb204446db071897fb9320a01dbbfeaadb616a2c50a",
+        "1ff281c692c83a32d73d6857c03271c9f747409739b4017f6984d587571d84c0"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete; Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete; Claim 2: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R007-C1",
+          "claim_id": "claim_66071fb16822614826c24f62",
+          "claim": "the Black Death reached Crimea by 1343",
+          "source_excerpt": "the Black Death reached Crimea by 1343",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R007-C2",
+          "claim_id": "claim_3be6db9bf44c505065d7c110",
+          "claim": "the Black Death was carried by Oriental rat fleas",
+          "source_excerpt": "it was carried by Oriental rat fleas",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R007-C3",
+          "claim_id": "claim_4d596a54d4a3a6ae045c196b",
+          "claim": "the Black Death reached the Mediterranean in 1343",
+          "source_excerpt": "the Black Death reached the Mediterranean in 1343",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 336); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R008",
+      "generation_line": 347,
+      "question_id": "5ad15170645df0001a2d1735",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_a14f638e2ced0e94894ae8e0",
+      "doc_ids": [
+        "380ed5d16b3e18e5bda2da4ba87c2f5203099504f6e9d67415a4907077e2d2c0",
+        "ca02817db884a9c211c78887f253bd1ad8313827771fe6c139771bc0dd71b434",
+        "93fbba530b12b34ec00e68920885b0413568d15ff0159deaeffa23795ab32c51"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": null,
+      "evaluation_status": "error",
+      "extraction_status": "unavailable",
+      "extraction_error": "claim extraction output invalid after one retry: ValueError: Claim 0 does not preserve source negation",
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 does not preserve source negation"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 does not preserve source negation"
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Extraction failed: claim extraction output invalid after one retry: ValueError: Claim 0 does not preserve source negation",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R009",
+      "generation_line": 270,
+      "question_id": "571cd11add7acb1400e4c170",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_c6b397bbbf33e5d72b8ab6b3",
+      "doc_ids": [
+        "dbbb33306f8f352995a1d3fd2732b580913659def1453f2b1f9ebc7902eda387",
+        "6b5baac861c36b5fd13e7a181e848be90fe9291892c24fcaa534999aeb639149",
+        "730ba2104466230111a89907773728154408650beef8a8f777c6ef19249e8d1b"
+      ],
+      "reference_answer": [
+        "performance",
+        "performance",
+        "performance",
+        "performance",
+        "a \"boost\" in performance"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R009-C1",
+          "claim_id": "claim_648bdbf26394bbdbf6356c72",
+          "claim": "Professional athletes seek to boost their performance by breathing oxygen.",
+          "source_excerpt": "professional athletes seek to boost their performance by breathing oxygen",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "dbbb33306f8f352995a1d3fd2732b580913659def1453f2b1f9ebc7902eda387",
+              "excerpt": "Professional athletes, especially in American football, also sometimes go off field between plays to wear oxygen masks in order to get a \"boost\" in performance."
+            }
+          ],
+          "explanation": "The passage explicitly states that professional athletes use oxygen masks to boost their performance.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R009-C2",
+          "claim_id": "claim_0e854874503a4c50dcec871e",
+          "claim": "They wear oxygen masks between plays to get a \"boost\" in performance.",
+          "source_excerpt": "they wear oxygen masks between plays to get a \"boost\" in performance",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "dbbb33306f8f352995a1d3fd2732b580913659def1453f2b1f9ebc7902eda387",
+              "excerpt": "Professional athletes, especially in American football, also sometimes go off field between plays to wear oxygen masks in order to get a \"boost\" in performance."
+            }
+          ],
+          "explanation": "The passage explicitly states that professional athletes, including those in American football, wear oxygen masks between plays to get a 'boost' in performance, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R010",
+      "generation_line": 399,
+      "question_id": "572665ff708984140094c4c5",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_cf0e15e47feabab7e3717de2",
+      "doc_ids": [
+        "e71eab6fb81f391a6f9f6f7ddf6a435221f7159360e4d7a0549e3b969d010395",
+        "ca24626595fcaaf93d7b5eaabdf0a5a0f4193ef886995a0937088d1f4995964b",
+        "d93c7d5b00d35e994837759344de468ee6476cff3aa4d621189ac8123a4b67db"
+      ],
+      "reference_answer": [
+        "the key bed",
+        "key bed",
+        "key bed"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 does not preserve source negation"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R010-C1",
+          "claim_id": "claim_17ccf5be15c9b9c6d434f95a",
+          "claim": "Finding the key bed in situations where a fault penetrates some formations but not those on top of it can help determine whether the fault is a normal fault or a thrust fault",
+          "source_excerpt": "Finding the key bed in situations where a fault penetrates some formations but not those on top of it can help determine whether the fault is a normal fault or a thrust fault [Doc 1]",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "e71eab6fb81f391a6f9f6f7ddf6a435221f7159360e4d7a0549e3b969d010395",
+              "excerpt": "Finding the key bed in these situations may help determine whether the fault is a normal fault or a thrust fault."
+            }
+          ],
+          "explanation": "The passage explicitly states that finding the key bed can help determine the type of fault, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R011",
+      "generation_line": 103,
+      "question_id": "572f55e8a23a5019007fc56b",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_d815c720ad6604e4e0385457",
+      "doc_ids": [
+        "e5d79b0b05eee021a524a6dd62e33af2c2360f9063ec0f600a1cd0995c8e90d5",
+        "77f46222c650ac52f46494875a66ac9bdfd819d463c16ac32e3a05adf3a9528b",
+        "7c28011f4adb5bc9518e20aa534136a5ab7d9e920f0263cb0d482a6ce7859ede"
+      ],
+      "reference_answer": [
+        "Gaulish name Rēnos",
+        "Rēnos",
+        "the Gaulish name Rēnos",
+        "Rēnos",
+        "Rēnos"
+      ],
+      "automatic_response_behavior": null,
+      "evaluation_status": "error",
+      "extraction_status": "unavailable",
+      "extraction_error": "claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Extraction failed: claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R012",
+      "generation_line": 79,
+      "question_id": "573368044776f41900660a29",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_e533073b4199a7ac7631e2be",
+      "doc_ids": [
+        "d9538b16aa9b6d2253faa5214e2ae46fe8c12c15499fedbe064fb2fc35d11f71",
+        "05e6b70a4c996f49687d72f7a373609343967f6fed5be1f3bda6965dcfad141e",
+        "01fbee86abe8e1fdb157b2ec40b6bdbb181baa78b7843fc6874859b9c6d9e482"
+      ],
+      "reference_answer": [
+        "green",
+        "green",
+        "green"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete; Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R012-C1",
+          "claim_id": "claim_5eb63458a498c5c80312f43e",
+          "claim": "the Botanic Garden and the University Library garden are green spaces",
+          "source_excerpt": "the Botanic Garden and the University Library garden are green spaces in the city.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R012-C2",
+          "claim_id": "claim_464b1a96ed39d1ed129270ae",
+          "claim": "the Botanic Garden and the University Library garden are in Warsaw",
+          "source_excerpt": "the Botanic Garden and the University Library garden are green spaces in the city.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 277); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R013",
+      "generation_line": 323,
+      "question_id": "5ad23fded7d075001a4288fd",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_45a22100cfe76800dd2a4637",
+      "doc_ids": [
+        "f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c",
+        "fdca2bfa5203b813cc715877a5fe7c4b90d80bcb6d8b54d88236c9bdeda42cf6",
+        "b4e5bc367ebb9b2d4ccef67770a2f67d1a323f808c17f89bede0f2af3b3a5f3f"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 0.6666666666666666,
+      "claims": [
+        {
+          "blind_claim_id": "R013-C1",
+          "claim_id": "claim_c5170a005afabd4ebba7b28b",
+          "claim": "French Catholics were concentrated in the majority of the country",
+          "source_excerpt": "French Catholics were concentrated in the majority of the country, with Huguenots making up about one-eighth of the population, concentrated mainly in the southern and central parts of France.",
+          "automatic_label": "CONTRADICTED",
+          "evidence": [
+            {
+              "document_id": "f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c",
+              "excerpt": "Huguenot numbers peaked near an estimated two million by 1562, concentrated mainly in the southern and central parts of France, about one-eighth the number of French Catholics."
+            }
+          ],
+          "explanation": "The passage states that Huguenots, not French Catholics, were concentrated mainly in the southern and central parts of France.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R013-C2",
+          "claim_id": "claim_d0d96bf72f64e128dd51173f",
+          "claim": "Huguenots made up about one-eighth of the population",
+          "source_excerpt": "French Catholics were concentrated in the majority of the country, with Huguenots making up about one-eighth of the population, concentrated mainly in the southern and central parts of France.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c",
+              "excerpt": "Huguenot numbers peaked near an estimated two million by 1562, concentrated mainly in the southern and central parts of France, about one-eighth the number of French Catholics."
+            }
+          ],
+          "explanation": "The passage states that Huguenot numbers peaked at an estimated two million, which is about one-eighth the number of French Catholics, supporting the claim that Huguenots made up about one-eighth of the population at that time.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R013-C3",
+          "claim_id": "claim_1df17bd535d45cbc40c29f37",
+          "claim": "Huguenots were concentrated mainly in the southern and central parts of France",
+          "source_excerpt": "French Catholics were concentrated in the majority of the country, with Huguenots making up about one-eighth of the population, concentrated mainly in the southern and central parts of France.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "f20bb42b5e294e6d2d01963844230d83bfdf35592386b5cad0545b14a5462b4c",
+              "excerpt": "Huguenot numbers peaked near an estimated two million by 1562, concentrated mainly in the southern and central parts of France, about one-eighth the number of French Catholics."
+            }
+          ],
+          "explanation": "The passage explicitly states that Huguenots were concentrated mainly in the southern and central parts of France.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R014",
+      "generation_line": 116,
+      "question_id": "572fdd03a23a5019007fca9e",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_824b138507faa48c3ff20a00",
+      "doc_ids": [
+        "0b0c060c48f85197bf26e8fe7a9135f1de267f3c76fb0f2a8b61b88bdb83897d",
+        "60527ca1cce54d340513d3ebe3086d4f283d0953ce0dd1d62f7c93de4d1730e4",
+        "9e9b2377fcb94d76f2e805157e0273125bd80e22843a3143f64f1a7f052bd4de"
+      ],
+      "reference_answer": [
+        "domestic legislation of the Scottish Parliament",
+        "domestic legislation of the Scottish Parliament.",
+        "domestic legislation of the Scottish Parliament"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R014-C1",
+          "claim_id": "claim_f56ba23bad583602a6fc6e9b",
+          "claim": "MPs representing English constituencies are unable to vote on the domestic legislation of the Scottish Parliament.",
+          "source_excerpt": "According to [Doc 1], MPs representing English constituencies are unable to vote on the domestic legislation of the Scottish Parliament.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "0b0c060c48f85197bf26e8fe7a9135f1de267f3c76fb0f2a8b61b88bdb83897d",
+              "excerpt": "English, Scottish, Welsh and Northern Irish Westminster MPs are unable to vote on the domestic legislation of the Scottish Parliament."
+            }
+          ],
+          "explanation": "The passage explicitly states that English MPs cannot vote on the domestic legislation of the Scottish Parliament, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R015",
+      "generation_line": 343,
+      "question_id": "5729a26d6aef05140015505c",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_4cd7ebc22ad359fc2245b2bb",
+      "doc_ids": [
+        "02473abeaeaf0a7ac1221ede2323c119c62182f573df438534fcb86c2c6943d4",
+        "290ff6e5995b6225912bc5c2ba43ba1b4c1fed855787d1836a6727f9810cae27",
+        "5caf1cc1422f1d465946defdf660730d9cf842f54b1ae5136e9744b6079a7e92"
+      ],
+      "reference_answer": [
+        "the absolute value",
+        "the absolute value",
+        "absolute value",
+        "the absolute value"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 0.0,
+      "claims": [
+        {
+          "blind_claim_id": "R015-C1",
+          "claim_id": "claim_ce7d9fdf59bd399adf474b71",
+          "claim": "Completing Q with respect to the usual absolute value will produce the field of real numbers",
+          "source_excerpt": "Completing Q with respect to the usual absolute value (also referred to as the infinite prime) will produce the field of real numbers [Doc 1].",
+          "automatic_label": "CONTRADICTED",
+          "evidence": [
+            {
+              "document_id": "02473abeaeaf0a7ac1221ede2323c119c62182f573df438534fcb86c2c6943d4",
+              "excerpt": "While completing Q (roughly, filling the gaps) with respect to the absolute value yields the field of real numbers, completing with respect to the p-adic norm |−|p yields the field of p-adic numbers."
+            }
+          ],
+          "explanation": "The passage explicitly states that completing Q with respect to the absolute value yields the field of real numbers, which directly contradicts the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R016",
+      "generation_line": 330,
+      "question_id": "5a893a003b2508001a72a53f",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_7a72cd11191c203bb4e081a9",
+      "doc_ids": [
+        "4eef5ee2e8e5a99f7d072734f1ac52b08194c79b66eefd1f527eb2304547b585",
+        "0392a2097b98d54cbb0accb20f821be719c1c3bbb9aa73d9293a66c7480a8de6",
+        "b1d48329392cfda37a8a0a338e6cac3fbf697eed8309358031f0fb2baff989f5"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 4 column 18 (char 71); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R016-C1",
+          "claim_id": "claim_219c381d744c7580dc43b994",
+          "claim": "There is no conjecture that specifically states every odd integer n greater than 2 can be expressed as a sum of two primes.",
+          "source_excerpt": "There is no conjecture mentioned in the provided evidence that specifically states every odd integer n greater than 2 can be expressed as a sum of two primes.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 4 column 18 (char 71); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 4 column 18 (char 71); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Explanation must be short (at most 400 characters)"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 4 column 18 (char 71); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R016-C2",
+          "claim_id": "claim_215365ed8834dc308313621f",
+          "claim": "Vinogradov's theorem is mentioned as saying that every sufficiently large odd integer can be written as a sum of three primes.",
+          "source_excerpt": "However, Vinogradov's theorem is mentioned as saying that every sufficiently large odd integer can be written as a sum of three primes.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "4eef5ee2e8e5a99f7d072734f1ac52b08194c79b66eefd1f527eb2304547b585",
+              "excerpt": "Weaker statements than this have been proven, for example Vinogradov's theorem says that every sufficiently large odd integer can be written as a sum of three primes."
+            }
+          ],
+          "explanation": "The passage directly states that Vinogradov's theorem says that every sufficiently large odd integer can be written as a sum of three primes, which supports the claim exactly as stated without any need for inference or additional context from other passages provided here.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R017",
+      "generation_line": 108,
+      "question_id": "5729fb003f37b31900478629",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_81129d35d4d04de20407f981",
+      "doc_ids": [
+        "78ec071ddf9b759d3708c4c1ad1235997e73bd747b9e748af29742ebdf7d95d2",
+        "d5f4c4227c07c52cff10ca527f73efedf7e6c5aa9c01a3d9bf8a9468a6ae6939",
+        "9d6d3d56a911f98076f7ff939a5230eb0bb8caad8bfe5de9bc958e127c7ce475"
+      ],
+      "reference_answer": [
+        "hormones",
+        "hormones",
+        "hormones"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 0.0,
+      "claims": [
+        {
+          "blind_claim_id": "R017-C1",
+          "claim_id": "claim_0d2f79de634c709b7038ba98",
+          "claim": "The production of lymphokines is regulated by the immune system.",
+          "source_excerpt": "The production of lymphokines is regulated by the immune system. [Doc 2]",
+          "automatic_label": "NOT_ENOUGH_EVIDENCE",
+          "evidence": [],
+          "explanation": "None of the passages directly mention the production of lymphokines or their regulation by the immune system.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R018",
+      "generation_line": 355,
+      "question_id": "5acf98ad77cf76001a6853c6",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_3454903dbab61b7e5cbd0153",
+      "doc_ids": [
+        "7b34e1e2f91ddbd599fb3d4d15ae6acd8e8d1cac5db50bbd4e9817681d7881c5",
+        "4caee0394ea5501c07bbfff7e18699abb2e6bf66f60623a501d3d454f3df8e3b",
+        "eb6de5520e4ff5dd74226484694777930247235a992261581ce74e58cdb39246"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": null,
+      "evaluation_status": "error",
+      "extraction_status": "unavailable",
+      "extraction_error": "claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Extraction failed: claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R019",
+      "generation_line": 366,
+      "question_id": "5ad4d2855b96ef001a10a1de",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_8aaf9055ce9df2ca551806a2",
+      "doc_ids": [
+        "bf76765a3bcbb3f449e01da2f548b3b094ea7b414aeef804bd1d9900155a93f6",
+        "d16cfd194068a566c150d73414f420784023764bb0b49639fd879fedf9396397",
+        "d9538b16aa9b6d2253faa5214e2ae46fe8c12c15499fedbe064fb2fc35d11f71"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R019-C1",
+          "claim_id": "claim_ab0c24bd78f160d566f95be7",
+          "claim": "Vistula is situated on both the moraine plateau and the Vistula terraces.",
+          "source_excerpt": "the left part of Vistula is situated on both the moraine plateau (10 to 25 m above Vistula level) and the Vistula terraces (max. 6.5 m above Vistula level).",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "bf76765a3bcbb3f449e01da2f548b3b094ea7b414aeef804bd1d9900155a93f6",
+              "excerpt": "The left one is situated both on the moraine plateau (10 to 25 m (32.8 to 82.0 ft) above Vistula level) and on the Vistula terraces (max. 6.5 m (21.3 ft) above Vistula level)."
+            }
+          ],
+          "explanation": "The excerpt shows that the left part of Warsaw, which is situated on the moraine plateau, is also on the Vistula terraces, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R019-C2",
+          "claim_id": "claim_75edbd365ba53e659c308061",
+          "claim": "The moraine plateau is 10 to 25 m above Vistula level.",
+          "source_excerpt": "the left part of Vistula is situated on both the moraine plateau (10 to 25 m above Vistula level) and the Vistula terraces (max. 6.5 m above Vistula level).",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 288); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R019-C3",
+          "claim_id": "claim_23abe08756234a34cd77c9fc",
+          "claim": "The Vistula terraces are max. 6.5 m above Vistula level.",
+          "source_excerpt": "the left part of Vistula is situated on both the moraine plateau (10 to 25 m above Vistula level) and the Vistula terraces (max. 6.5 m above Vistula level).",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "bf76765a3bcbb3f449e01da2f548b3b094ea7b414aeef804bd1d9900155a93f6",
+              "excerpt": "The left one is situated both on the moraine plateau (10 to 25 m (32.8 to 82.0 ft) above Vistula level) and on the Vistula terraces (max. 6.5 m (21.3 ft) above Vistula level)."
+            }
+          ],
+          "explanation": "The passage explicitly states that the Vistula terraces are max. 6.5 m above Vistula level, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R020",
+      "generation_line": 144,
+      "question_id": "5711163bb654c5140001fb13",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_b15ebfa4451db20c1bd9f9d9",
+      "doc_ids": [
+        "8936635bf73401c433870cb063f6320a4ef8777db9a366c03e4dbb42de622dd0",
+        "702b27fc97e08ab514f3c58b2a2f6a8afddd58c1701fe5d11c1af9c85471d783",
+        "f85a29eb0186d32f90fce7f7df6c7ef2c96feab2c5e43d2346243e0507c5ee9c"
+      ],
+      "reference_answer": [
+        "Westchester",
+        "Westchester",
+        "Westchester"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R020-C1",
+          "claim_id": "claim_9aa137477d2235ccc20f34b9",
+          "claim": "New Rochelle is located in the county of Westchester.",
+          "source_excerpt": "According to [Doc 1], New Rochelle is located in the county of Westchester.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "8936635bf73401c433870cb063f6320a4ef8777db9a366c03e4dbb42de622dd0",
+              "excerpt": "New Rochelle, located in the county of Westchester on the north shore of Long Island Sound, seemed to be the great location of the Huguenots in New York."
+            }
+          ],
+          "explanation": "The passage explicitly states that New Rochelle is located in the county of Westchester.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R021",
+      "generation_line": 52,
+      "question_id": "5ad570b25b96ef001a10aede",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_17fc8172c415137c3073425e",
+      "doc_ids": [
+        "03eb6accc47f8f37613f49787d90a7cde1808cd11e3eca574b283b3e63a9aa56",
+        "0771c41591ce859133397b70f7fe295ca178804c352b68cc34f3f35caa1c92ab",
+        "874533677a269c5d5fb8bd3a3213307ea1632c2236ea48b8da8182d07905fcc8"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "full_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R022",
+      "generation_line": 228,
+      "question_id": "5a81f28431013a001a334fb5",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_a4eb9ac942f97e682447d6e1",
+      "doc_ids": [
+        "dcc81677898074e44be2a7eff5c32d8289a558c94741d4acadce83b97ba38260",
+        "09dae1e2b2708f999627efe257489cfaad54e793df884b8877c2d638640ffa20",
+        "2d3fc7ca497bbbc2dbcd1b6cdda8ad72ab350d972900ce1725419106f82bdad6"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "full_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R023",
+      "generation_line": 211,
+      "question_id": "572a1a5c6aef051400155284",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_ee4f05c124c95d9c1deb1dd4",
+      "doc_ids": [
+        "d66dc811eec70fc3e4c423de2b401a9c06f15664d2374683267e4dc009eeb470",
+        "18893f714ac102ba660ec3790204ffdf2ee86fd4cd069c50ec0ceeaed01cefbd",
+        "86b012bdce8785023cf0587f7f63bb8d3f6c6b5c81ea239803399bcb44bd25ce"
+      ],
+      "reference_answer": [
+        "special efforts",
+        "special efforts",
+        "special efforts"
+      ],
+      "automatic_response_behavior": null,
+      "evaluation_status": "error",
+      "extraction_status": "unavailable",
+      "extraction_error": "claim extraction output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 1 column 5186 (char 5185); done_reason=length; response may be truncated or incomplete",
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 3 does not preserve source negation"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "length",
+          "validation_error": "JSONDecodeError: Unterminated string starting at: line 1 column 5186 (char 5185); done_reason=length; response may be truncated or incomplete"
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Extraction failed: claim extraction output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 1 column 5186 (char 5185); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R024",
+      "generation_line": 335,
+      "question_id": "5ad546c75b96ef001a10ac11",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_3e51b6f2ffd158d1fbaffdf6",
+      "doc_ids": [
+        "b1883919e17ff672ebc5c8754b9babd683410134d88304f2048788353467a297",
+        "ea8fcbfc81f8e0914b4fda68a85f3de1d3c5b4dfcd3e1c1417c68ab3413da669",
+        "910b91d2f97cafa3b557bb9be5dd6fdcbaa2991bf2197b4010bd3d78c81969cc"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 396); done_reason=length; response may be truncated or incomplete; Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 386); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R024-C1",
+          "claim_id": "claim_57cadd8e94b1b01fb21d91e0",
+          "claim": "a Turing machine is a deterministic Turing machine with an added feature of non-determinism",
+          "source_excerpt": "a non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 396); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 396); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 396); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R024-C2",
+          "claim_id": "claim_f54826399da975ef05a3f381",
+          "claim": "a Turing machine can have multiple possible future actions from a given state",
+          "source_excerpt": "which allows a Turing machine to have multiple possible future actions from a given state",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 386); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 386); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Explanation must be short (at most 400 characters)"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 386); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R025",
+      "generation_line": 359,
+      "question_id": "5ad28173d7d075001a4297fd",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_e9eaa0227eebd5b0cdc7741d",
+      "doc_ids": [
+        "0c60fccfa0a5891c548480d13173fbf66ab99f403f068010ba84b6402ed6daff",
+        "b3f180d900be2bb7702a2932c1b2d2af31cd2543eca4a0134755f299d0c10cbc",
+        "c2efd8db4a6e03e9a632ded17176ef7b4de416039b6d74b8fc93e8d2420af469"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 does not preserve source negation"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R025-C1",
+          "claim_id": "claim_8c44ec1515a05637eebf260c",
+          "claim": "James Clerk Maxwell discovered that electric and magnetic fields could be \"self-generating\".",
+          "source_excerpt": "However, I can tell you that James Clerk Maxwell discovered that electric and magnetic fields could be \"self-generating\" through a wave that traveled at a speed that he calculated to be the speed of light.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "0c60fccfa0a5891c548480d13173fbf66ab99f403f068010ba84b6402ed6daff",
+              "excerpt": "This insight united the nascent fields of electromagnetic theory with optics and led directly to a complete description of the electromagnetic spectrum."
+            }
+          ],
+          "explanation": "The passage states that Maxwell's discovery of self-generating fields led to a complete description of the electromagnetic spectrum, supporting the claim that he discovered that electric and magnetic fields could be self-generating.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R026",
+      "generation_line": 34,
+      "question_id": "5705fd8475f01819005e7841",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_c961c59bfdfff7ea72cfc89e",
+      "doc_ids": [
+        "b850237f43814691bedb635f5b07cea17e5bd3a2be801e564b61359a1746c8c6",
+        "bb3727c243a6cb744686ba6886c54791cd7745eca592eef8baf9c5b06c996b3e",
+        "dfc62fde23936e1ea3cab0f6a04aa5f4eb4ce3a3a1c3c79813ebfd4a6fbee7b8"
+      ],
+      "reference_answer": [
+        "Pacific Ocean",
+        "Pacific Ocean",
+        "Pacific Ocean"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 411); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R026-C1",
+          "claim_id": "claim_5bfbf213e2f398378b1d8827",
+          "claim": "The Pacific Ocean islands are body of water",
+          "source_excerpt": "Pacific Ocean islands, shorelines, beaches, and coastal plains",
+          "automatic_label": "NOT_ENOUGH_EVIDENCE",
+          "evidence": [
+            {
+              "document_id": "b850237f43814691bedb635f5b07cea17e5bd3a2be801e564b61359a1746c8c6",
+              "excerpt": "The region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains, through the Transverse and Peninsular Ranges with their peaks, into the large and small interior valleys, to the vast deserts of California."
+            }
+          ],
+          "explanation": "Passages mention Pacific Ocean islands as part of a geographical description, but do not state that the islands are a body of water.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R026-C2",
+          "claim_id": "claim_32e5a6320504105aa5d38d01",
+          "claim": "The region spans from Pacific Ocean islands",
+          "source_excerpt": "According to [Doc 1], the region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 411); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 411); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 411); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 411); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R027",
+      "generation_line": 375,
+      "question_id": "5a6695e8f038b7001ab0c01a",
+      "configuration": "dense_basic",
+      "is_answerable": false,
+      "answer_id": "answer_e54410df2b99f104106eeb58",
+      "doc_ids": [
+        "b04a1b4486692807dd767cb5a92dd6ad22056e725f2af81c0800045aa31137f7",
+        "db91f2599d75c551b0b759a111af3526cadd1aaf2de507a25b546a5c61b6d412",
+        "e83796106923fb4c041f48e03aac86a7ce1c0ca388e14d335f5261ec964785b9"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R027-C1",
+          "claim_id": "claim_7a1a6b1b02fd81bc38361bee",
+          "claim": "X.121 allowed the interconnection of national X.25 networks.",
+          "source_excerpt": "According to [Doc 1], X.121 allowed the interconnection of national X.25 networks.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "b04a1b4486692807dd767cb5a92dd6ad22056e725f2af81c0800045aa31137f7",
+              "excerpt": "X.75 and X.121 allowed the interconnection of national X.25 networks."
+            }
+          ],
+          "explanation": "The passage explicitly states that X.75 and X.121 allowed the interconnection of national X.25 networks, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R028",
+      "generation_line": 154,
+      "question_id": "5ad03c2977cf76001a686eb4",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_e96b9f6fff28ef988012a123",
+      "doc_ids": [
+        "ecf1e1973489bdea861aef055f7038e7972d136b0a3e0815dad277527a4de447",
+        "74e88ac6d67515920292029909b403269481a3690e4aeb4db4704db9b3c42403",
+        "695f7892d8dda7e75ff7ac287c45ae74caac840c17b5defa2ce1324a001b8dad"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 0.6666666666666666,
+      "claims": [
+        {
+          "blind_claim_id": "R028-C1",
+          "claim_id": "claim_65058c58cdb523d933828ab3",
+          "claim": "Schedule 5 to the Scotland Act is mentioned",
+          "source_excerpt": "I found that Schedule 5 to the Scotland Act is mentioned,",
+          "automatic_label": "NOT_ENOUGH_EVIDENCE",
+          "evidence": [],
+          "explanation": "None of the passages mention Schedule 5 to the Scotland Act.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R028-C2",
+          "claim_id": "claim_e81d9bd8276d70843b9a8d4b",
+          "claim": "all subjects which are not explicitly stated in Schedule 5 are automatically devolved to the Scottish Parliament",
+          "source_excerpt": "it states that all subjects which are not explicitly stated in Schedule 5 are automatically devolved to the Scottish Parliament.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "ecf1e1973489bdea861aef055f7038e7972d136b0a3e0815dad277527a4de447",
+              "excerpt": "All matters that are not specifically reserved are automatically devolved to the Scottish Parliament."
+            }
+          ],
+          "explanation": "The passage explicitly states that all matters not explicitly stated in Schedule 5 are automatically devolved to the Scottish Parliament, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R028-C3",
+          "claim_id": "claim_fc8ce51e089e6626e9aa8eb7",
+          "claim": "the specific devolved matters are all subjects which are not explicitly stated in Schedule 5 to the Scotland Act as reserved matters",
+          "source_excerpt": "According to [Doc 1], the specific devolved matters are all subjects which are not explicitly stated in Schedule 5 to the Scotland Act as reserved matters.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "ecf1e1973489bdea861aef055f7038e7972d136b0a3e0815dad277527a4de447",
+              "excerpt": "The specific devolved matters are all subjects which are not explicitly stated in Schedule 5 to the Scotland Act as reserved matters."
+            }
+          ],
+          "explanation": "The passage directly states that the specific devolved matters are all subjects not explicitly stated in Schedule 5 as reserved matters, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R029",
+      "generation_line": 224,
+      "question_id": "5a57f0ea770dc0001aeefee3",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_e9db00561e61c642c570273f",
+      "doc_ids": [
+        "c018c8eb3d4256f40e35bc0be8827b1ac58191a915621d04874fc9bbf2a895b7",
+        "88ebefee76460e60ceee4d95b9c02b9473aec92dfa15668f865eb35a055afba5",
+        "0485f70ec1fd26d82a22017be716a779777acc8928fc5c1353ca7f2bb2274ab1"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "partial_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R029-C1",
+          "claim_id": "claim_82c0a54e628d424431e9aef7",
+          "claim": "The theory of evolution was published almost a hundred years after William Smith's principles of faunal succession.",
+          "source_excerpt": "Charles Darwin's theory of evolution was published almost a hundred years after William Smith's principles of faunal succession, which were developed independently of evolutionary thought.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "c018c8eb3d4256f40e35bc0be8827b1ac58191a915621d04874fc9bbf2a895b7",
+              "excerpt": "Based on principles laid out by William Smith almost a hundred years before the publication of Charles Darwin's theory of evolution, the principles of succession were developed independently of evolutionary thought."
+            }
+          ],
+          "explanation": "The passage explicitly states that the principles of faunal succession were developed almost a hundred years before the publication of Charles Darwin's theory of evolution, supporting the claim about William Smith's principles of faunal succession and the timing relative to the theory of evolution's publication.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R029-C2",
+          "claim_id": "claim_28c6a037d805f015d901ea62",
+          "claim": "William Smith's principles of faunal succession were developed independently of evolutionary thought.",
+          "source_excerpt": "Charles Darwin's theory of evolution was published almost a hundred years after William Smith's principles of faunal succession, which were developed independently of evolutionary thought.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "c018c8eb3d4256f40e35bc0be8827b1ac58191a915621d04874fc9bbf2a895b7",
+              "excerpt": "Based on principles laid out by William Smith almost a hundred years before the publication of Charles Darwin's theory of evolution, the principles of succession were developed independently of evolutionary thought."
+            }
+          ],
+          "explanation": "The passage explicitly states that William Smith's principles of faunal succession were developed independently of evolutionary thought, supporting the claim directly.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R030",
+      "generation_line": 380,
+      "question_id": "5727e21e4b864d1900163f36",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_3515f1a109f62e04321014e5",
+      "doc_ids": [
+        "874533677a269c5d5fb8bd3a3213307ea1632c2236ea48b8da8182d07905fcc8",
+        "dcc81677898074e44be2a7eff5c32d8289a558c94741d4acadce83b97ba38260",
+        "eb6de5520e4ff5dd74226484694777930247235a992261581ce74e58cdb39246"
+      ],
+      "reference_answer": [
+        "Stephen Greenblatt",
+        "Stephen Greenblatt",
+        "Stephen Greenblatt"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 223); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R030-C1",
+          "claim_id": "claim_97eeb5824706a89cd59f040f",
+          "claim": "Stephen Greenblatt is a Shakespeare scholar.",
+          "source_excerpt": "Stephen Greenblatt is a Shakespeare scholar and a faculty member at Harvard.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 223); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 223); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 references an unknown document ID"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 223); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R030-C2",
+          "claim_id": "claim_b32f23fe3157f922305245ca",
+          "claim": "Stephen Greenblatt is a faculty member at Harvard.",
+          "source_excerpt": "Stephen Greenblatt is a Shakespeare scholar and a faculty member at Harvard.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "874533677a269c5d5fb8bd3a3213307ea1632c2236ea48b8da8182d07905fcc8",
+              "excerpt": "Shakespeare scholar Stephen Greenblatt"
+            }
+          ],
+          "explanation": "The passage explicitly mentions Stephen Greenblatt as a Shakespeare scholar at Harvard, supporting the claim that he is a faculty member there.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt exceeds 400 characters"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R031",
+      "generation_line": 311,
+      "question_id": "572ffce5a23a5019007fcc18",
+      "configuration": "dense_basic",
+      "is_answerable": true,
+      "answer_id": "answer_8f57886eb0e1843bac9575ed",
+      "doc_ids": [
+        "b5982bf3efbf127bdc0d4129376c8149d17dd872f55180b77b46c56c7b601a03",
+        "2424c677d91ead7b6884aaa51d2cc04783f884e3c10ae22d2a4a0c7175ed4d8b",
+        "7c28011f4adb5bc9518e20aa534136a5ab7d9e920f0263cb0d482a6ce7859ede"
+      ],
+      "reference_answer": [
+        "northwest",
+        "northwest",
+        "northwest"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete; Claim 1: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R031-C1",
+          "claim_id": "claim_87096f6e0de429bac569bd1c",
+          "claim": "the Rhine followed a course to the northwest",
+          "source_excerpt": "during the Early Pleistocene, the Rhine followed a course to the northwest, through the present North Sea.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R031-C2",
+          "claim_id": "claim_9801f2ee8b05bcb5d40281c8",
+          "claim": "the Rhine flowed to the northwest",
+          "source_excerpt": "the Rhine followed a course to the northwest, through the present North Sea.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 287); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R031-C3",
+          "claim_id": "claim_7c7c7da30e6e5b212c4cf734",
+          "claim": "the Rhine flowed through the present North Sea",
+          "source_excerpt": "during the Early Pleistocene, the Rhine followed a course to the northwest, through the present North Sea.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "7c28011f4adb5bc9518e20aa534136a5ab7d9e920f0263cb0d482a6ce7859ede",
+              "excerpt": "then flows through the Rhineland and eventually empties into the North Sea in the Netherlands."
+            }
+          ],
+          "explanation": "The passage states that the Rhine eventually empties into the North Sea in the Netherlands, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R032",
+      "generation_line": 174,
+      "question_id": "5a67dedd8476ee001a58a74d",
+      "configuration": "bm25_basic",
+      "is_answerable": false,
+      "answer_id": "answer_1afb5320200a8da81b83e0fd",
+      "doc_ids": [
+        "2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9",
+        "613ea613b64743a4b6c6c5cad6341afdc153a55dba222f368d35cc60e20ef4dd",
+        "e32237eb13f46727755bd53347a189c0620b3ffff778cecbcd627a94fbebc022"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 2: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete; Claim 3: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 614); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R032-C1",
+          "claim_id": "claim_f72c884974b23d929c9db843",
+          "claim": "course content funding for private schools is subject to restrictions",
+          "source_excerpt": "course content funding for private schools is subject to restrictions or possibly forbidden, as per the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments.",
+          "automatic_label": "NOT_ENOUGH_EVIDENCE",
+          "evidence": [
+            {
+              "document_id": "2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9",
+              "excerpt": "Funding for private schools is generally provided through student tuition, endowments, scholarship/voucher funds, and donations and grants from religious organizations or private individuals."
+            }
+          ],
+          "explanation": "The passage mentions funding sources for private schools but does not discuss any restrictions on course content funding specifically for private schools. Therefore, there is not enough evidence to support or contradict the claim about restrictions on course content funding for private schools in the provided documents.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Explanation must be short (at most 400 characters)"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R032-C2",
+          "claim_id": "claim_8486548e45e54c42b807fd41",
+          "claim": "course content funding for private schools is possibly forbidden",
+          "source_excerpt": "course content funding for private schools is subject to restrictions or possibly forbidden, as per the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments.",
+          "automatic_label": "NOT_ENOUGH_EVIDENCE",
+          "evidence": [
+            {
+              "document_id": "2894c924f3b7949239f3846f11a2cdb403c344416a9e245dc179f33fdd345fb9",
+              "excerpt": "Government funding for religious schools is either subject to restrictions or possibly forbidden, according to the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments."
+            }
+          ],
+          "explanation": "The passage mentions restrictions or possible prohibition of government funding for religious schools, but does not explicitly state that course content funding for private schools is forbidden.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R032-C3",
+          "claim_id": "claim_2de4332dfac80b0452b52e8f",
+          "claim": "the courts' interpretation of the Establishment Clause of the First Amendment applies to course content funding for private schools",
+          "source_excerpt": "course content funding for private schools is subject to restrictions or possibly forbidden, as per the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R032-C4",
+          "claim_id": "claim_d99c57b952e4ab70247a2984",
+          "claim": "course content funding for private schools is subject to individual state Blaine Amendments",
+          "source_excerpt": "course content funding for private schools is subject to restrictions or possibly forbidden, as per the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments.",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 614); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 614); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 422); done_reason=length; response may be truncated or incomplete"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 614); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R033",
+      "generation_line": 72,
+      "question_id": "5a892d303b2508001a72a4ee",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_a02f3b2bf6e0a08952f3ecf0",
+      "doc_ids": [
+        "1a3bfa6d8c28e3d95f98010e81aae93407594356ed4a4ca189d76d6b8d7c83f6",
+        "576db96228f229ebd5188bfb187b0285ce8e7a6eae31bd74cad56712e9e871a5",
+        "4eef5ee2e8e5a99f7d072734f1ac52b08194c79b66eefd1f527eb2304547b585"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": null,
+      "evaluation_status": "error",
+      "extraction_status": "unavailable",
+      "extraction_error": "claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        },
+        {
+          "attempt": 2,
+          "done_reason": "stop",
+          "validation_error": "ValueError: Claim 0 source excerpt is not verbatim in the answer"
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Extraction failed: claim extraction output invalid after one retry: ValueError: Claim 0 source excerpt is not verbatim in the answer",
+      "faithfulness": null,
+      "claims": []
+    },
+    {
+      "item_id": "R034",
+      "generation_line": 196,
+      "question_id": "573408ef4776f41900661757",
+      "configuration": "dense_abstain",
+      "is_answerable": true,
+      "answer_id": "answer_89b5c910c73e1bf210d6d1df",
+      "doc_ids": [
+        "63583ad01af4d3525f39681575e1e7eb014fdf24bbed2a7bca316567f29b4d20",
+        "52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057",
+        "52f3fc78c5cfc113278260d462256c64e588f9b3bdc83f3c4854fce44d81b74c"
+      ],
+      "reference_answer": [
+        "signing of the Treaty of Paris on 10 February 1763",
+        "10 February 1763",
+        "10 February 1763",
+        "10 February 1763",
+        "10 February 1763"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R034-C1",
+          "claim_id": "claim_1e8f11030823b1a7c9b42428",
+          "claim": "The North American theater of the Seven Years' War ended.",
+          "source_excerpt": "The North American theater of the Seven Years' War ended with the signing of the Treaty of Paris on 10 February 1763.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057",
+              "excerpt": "The war in North America officially ended with the signing of the Treaty of Paris on 10 February 1763, and war in the European theatre of the Seven Years' War was settled by the Treaty of Hubertusburg on 15 February 1763."
+            }
+          ],
+          "explanation": "The passage explicitly states that the war in North America ended with the signing of the Treaty of Paris on 10 February 1763, supporting the claim that the North American theater of the Seven Years' War ended.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R034-C2",
+          "claim_id": "claim_edf547bb5c4b5011a07a7a14",
+          "claim": "The North American French and Indian War ended on 10 February 1763.",
+          "source_excerpt": "The North American theater of the Seven Years' War ended with the signing of the Treaty of Paris on 10 February 1763.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057",
+              "excerpt": "The war in North America officially ended with the signing of the Treaty of Paris on 10 February 1763, and war in the European theatre of the Seven Years' War was settled by the Treaty of Hubertusburg on 15 February 1763."
+            }
+          ],
+          "explanation": "The passage explicitly states that the North American theater of the French and Indian War ended on 10 February 1763 with the signing of the Treaty of Paris, supporting the claim's date and location of the end of the war in North America.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        },
+        {
+          "blind_claim_id": "R034-C3",
+          "claim_id": "claim_6febdd3cfe53436a3b97c6f7",
+          "claim": "The Treaty of Paris was signed on 10 February 1763.",
+          "source_excerpt": "The North American theater of the Seven Years' War ended with the signing of the Treaty of Paris on 10 February 1763.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "52dde7db662fc424e04bd1ed3cd943e7d11c0868e7f691a8c6cac05cb561b057",
+              "excerpt": "The war in North America officially ended with the signing of the Treaty of Paris on 10 February 1763, and war in the European theatre of the Seven Years' War was settled by the Treaty of Hubertusburg on 15 February 1763."
+            }
+          ],
+          "explanation": "The passage explicitly states that the Treaty of Paris was signed on 10 February 1763, supporting the claim.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R035",
+      "generation_line": 100,
+      "question_id": "5ad0313b77cf76001a686dd5",
+      "configuration": "dense_abstain",
+      "is_answerable": false,
+      "answer_id": "answer_0ec09c4bf42d88affe4202ab",
+      "doc_ids": [
+        "60527ca1cce54d340513d3ebe3086d4f283d0953ce0dd1d62f7c93de4d1730e4",
+        "0b0c060c48f85197bf26e8fe7a9135f1de267f3c76fb0f2a8b61b88bdb83897d",
+        "8a9810070ed666290169acfdbaeb51a8a73dcf7b0055d2f1812c5e06d3166b9f"
+      ],
+      "reference_answer": [],
+      "automatic_response_behavior": "partial_abstention",
+      "evaluation_status": "completed",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": false,
+      "review_reason": "",
+      "faithfulness": 1.0,
+      "claims": [
+        {
+          "blind_claim_id": "R035-C1",
+          "claim_id": "claim_8a7b2129360cd7141d0635e7",
+          "claim": "backbench rebellions are rare in the Scottish Parliament",
+          "source_excerpt": "backbench rebellions by members who are discontent with their party's policies are rare in the Scottish Parliament.",
+          "automatic_label": "SUPPORTED",
+          "evidence": [
+            {
+              "document_id": "60527ca1cce54d340513d3ebe3086d4f283d0953ce0dd1d62f7c93de4d1730e4",
+              "excerpt": "backbench rebellions by members who are discontent with their party's policies are rare."
+            }
+          ],
+          "explanation": "The passage explicitly states that backbench rebellions are rare in the Scottish Parliament.",
+          "needs_review": false,
+          "review_reason": "",
+          "evaluation_status": "completed",
+          "judgment_error": null,
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "R036",
+      "generation_line": 46,
+      "question_id": "5706143575f01819005e7952",
+      "configuration": "bm25_basic",
+      "is_answerable": true,
+      "answer_id": "answer_6f010571876014e180d9e0c0",
+      "doc_ids": [
+        "c13e97d5b9e107a95bfa1a5c4501e6f2324d1835f95f811f69b00da962998aa8",
+        "f85a29eb0186d32f90fce7f7df6c7ef2c96feab2c5e43d2346243e0507c5ee9c",
+        "2c8c5bc876d6673ed7189917afadc92211cb5e6bda48d383222cef764603e6c8"
+      ],
+      "reference_answer": [
+        "MLB",
+        "MLB",
+        "MLB"
+      ],
+      "automatic_response_behavior": "no_abstention",
+      "evaluation_status": "error",
+      "extraction_status": "completed",
+      "extraction_error": null,
+      "extraction_warnings": [],
+      "extraction_attempts": [
+        {
+          "attempt": 1,
+          "done_reason": "stop",
+          "validation_error": null
+        }
+      ],
+      "needs_review": true,
+      "review_reason": "Claim 0: Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 259); done_reason=length; response may be truncated or incomplete",
+      "faithfulness": null,
+      "claims": [
+        {
+          "blind_claim_id": "R036-C1",
+          "claim_id": "claim_80a02f153fb65ff496f102c6",
+          "claim": "The Los Angeles Angels of Anaheim are from Major League Baseball (MLB).",
+          "source_excerpt": "According to [Doc 1], the Los Angeles Angels of Anaheim are from Major League Baseball (MLB).",
+          "automatic_label": null,
+          "evidence": [],
+          "explanation": "",
+          "needs_review": true,
+          "review_reason": "Judgment failed: claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 259); done_reason=length; response may be truncated or incomplete",
+          "evaluation_status": "error",
+          "judgment_error": "claim judgment output invalid after one retry: JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 259); done_reason=length; response may be truncated or incomplete",
+          "judgment_attempts": [
+            {
+              "attempt": 1,
+              "done_reason": "stop",
+              "validation_error": "ValueError: Evidence item 0 excerpt is not verbatim in its passage"
+            },
+            {
+              "attempt": 2,
+              "done_reason": "length",
+              "validation_error": "JSONDecodeError: Unterminated string starting at: line 9 column 18 (char 259); done_reason=length; response may be truncated or incomplete"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
