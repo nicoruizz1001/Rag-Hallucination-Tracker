@@ -83,6 +83,27 @@ python src/evaluator_diagnostics.py --compare results/evaluator_diagnostics/<run
 python src/evaluator_diagnostics.py --rescore results/evaluator_diagnostics/<run_dir>
 ```
 
+#### Result: candidate judge `qwen2.5:7b-instruct` vs `llama3.2:3b` (2026-10-28)
+
+Development diagnostic only, **not independent validation**: 14 synthetic cases written while investigating known failures; 36 labelled judgments. Only the judge changed. Both runs used the same saved `llama3.2:3b` claims (`--reuse-extraction`), prompts `claim_extraction_v5` / `claim_judgment_v9`, the frozen case and label files, the same passage ordering, and the same settings (temperature 0, seed 42, `num_ctx` 8192, `num_predict` 1536). The `--compare` compatibility check passed.
+
+| Metric | llama3.2:3b | qwen2.5:7b-instruct |
+|---|---|---|
+| Correct / labelled judgments (failures count as wrong) | 22/36 | 34/36 |
+| SUPPORTED / CONTRADICTED / NOT_ENOUGH_EVIDENCE | 18/26 · 0/6 · 4/4 | 26/26 · 5/6 · 3/4 |
+| Correct: relevant passage only / with distractors | 14/18 · 8/18 | 18/18 · 16/18 |
+| Label changes after adding distractors | 6/18 | 2/18 (both are failed judgments) |
+| Valid judgments citing a distractor | 16/18 | 0/18 |
+| Judgment failures / retries / calls | 1 · 8 · 44 | 2 · 3 · 39 |
+| Judgment model time / run wall-clock | 89 s · 112 s | 264 s · 268 s |
+
+Both candidate misses are **formatting failures, not wrong labels**. With a near-miss distractor present, the model wrote a runaway explanation until it hit `num_predict` (`done_reason=length`, unterminated JSON), on the first attempt and on the retry. Each of its 34 valid judgments had the expected label and cited the relevant passage. Remaining quality issues: some evidence excerpts quote a pronoun sentence without the antecedent sentence, and explanations sometimes overstate wording ("explicitly states that Rafael Ortiz…" when the passage says "Ortiz"). These results do not by themselves justify switching judges; the real-data sample and human validation still apply.
+
+Outputs:
+- Baseline run: `results/evaluator_diagnostics/evaluator_diag_20261028T003414829923Z_66fdf154564c`
+- Candidate run: `results/evaluator_diagnostics/evaluator_diag_20261028T005839983616Z_7d12cdf673ea`
+- Comparison table: `results/evaluator_diagnostics/comparison_20261028T010314208995Z.md`
+
 Eight-record real-data check: the first 8 records of the saved 400-record generation file (2 questions × 4 configurations). It writes a new run directory and leaves the generation records unchanged. Do not raise `--limit` to run all 400 records without deciding to.
 
 ```powershell
